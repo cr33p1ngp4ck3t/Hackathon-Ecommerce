@@ -1,0 +1,131 @@
+.header-container-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 0 20px;
+    #heading {
+        font-size: clamp(1vw, 24px, 3vw);
+    }
+}
+.header-container-product .header-container-1{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    width: 100%;
+
+    .header-container-items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        font-size: clamp(1vw, 16px, 2vw);
+        color: #726E8D;
+        > div {
+            cursor: pointer;
+        }
+    }
+}
+
+.product-hero {
+    display: flex;
+    .container-1{ 
+        flex:1;
+        >img {
+            width: 721px;
+            height: 759px;
+        }
+    }
+    .container-2{ 
+        display: flex;
+        align-items: center;
+        flex:1;
+        .container-desc {
+            height: 70%;
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            justify-content: space-between;
+        }
+    }
+}
+.proof-container-2 {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 250px;
+    height: 244px;
+    align-items: center;
+    justify-content: center;
+    margin: 12px;
+    padding: 0 20px;
+    #h {
+        color: #2A254B;
+        font-size: clamp(1vw, 24px, 3vw);
+    }
+    #t {
+        color: #2A254B;
+        font-family: 'Satoshi', sans-serif;
+    }
+}
+
+.newsletter-container-1 { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 444px;
+    width: 100%;
+    background: #F9F9F9;
+    #newsletter-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        color: #2A254B;
+        width: 40%;
+        background: white;
+        text-align: center;
+        margin: 20px 10px;
+        padding: calc(100% - 95%) calc(100% - 75%);
+        #h {
+            color: #2A254B;
+            font-size: 32px;
+        }
+        #t {
+            font-size: 18px;
+            color: #2A254B;
+            font-family: "Satoshi", sans-serif;
+            padding: 0 50px;
+        }
+        
+        >div:last-child {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            >#input-field {
+                flex: 2;
+                height: 50px;
+                max-width: 350px;
+                background: #F9F9F9;
+                border: none;
+                color: rgba(42, 37, 75, 0.178);
+                padding: 0 0 0 30px;
+                font-family: "Satoshi", sans-serif;
+            }
+            >#input-submit {
+                flex: .9;
+                height: stretch;
+                max-width: 120px;
+                background: #2A254B;
+                border: none;
+                color: white;
+                font-family: "Satoshi", sans-serif;
+                font-size: 16px;
+            }
+        }
+        
+    }
+}

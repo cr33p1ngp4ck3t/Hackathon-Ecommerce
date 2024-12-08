@@ -1,21 +1,375 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*{ 
+    font-family: 'Clash Display', sans-serif;
+    margin: 0;
+    color: #2A254B;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+}
+.header-container .header-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+    width: 100%;
+    #heading {
+        font-size: clamp(1vw, 24px, 3vw);
+    }
+}
+.header-container .header-container-2{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    width: 100%;
+
+    .header-container-items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        font-size: clamp(1vw, 16px, 2vw);
+        color: #726E8D;
+        > div {
+            cursor: pointer;
+        }
+    }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.footer {
+    color: white;
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        text-transform: capitalize;
+
+        .footer-content {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 20px;
+            color: white;
+            flex-direction: column;
+           #footer-content-1>div{ 
+            display: flex;
+            color: white;
+            margin: 10px;
+            >div {
+                flex:1;
+                color: white;
+                font-size: 16px;
+            }
+           }
+           #footer-content-2 {
+            >.x {
+                flex: 1;
+                >div{
+                    font-size: 14px;
+                    font-family: "Satoshi", sans-serif;
+                    color: white;
+                    margin: 10px 0;
+                    flex: 1;
+                }
+            }
+            .x:last-child {
+                flex: 2;
+                display: flex;
+                color: white;
+            
+            >#input-field {
+                flex: 2;
+                height: 50px;
+                width: 100%;
+                border: none;
+                color: white;
+                background: #FFFFFF26;
+                padding: 0 0 0 30px;
+                font-family: "Satoshi", sans-serif;
+            }
+            >#input-submit {
+                flex: .6;
+                height: stretch;
+                height: 50px;
+                background: white;
+                border: none;
+                color: #2A254B;
+                font-family: "Satoshi", sans-serif;
+                font-size: 16px;
+            }
+           }
+        }
+    }
+    .footer-links {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        border-top: 1px solid rgba(78, 77, 147, 1);
+        padding: 20px 0;
+        >div{
+            color: white;
+        }
+        }
+    }
+}
+
+
+.s-hero {
+    position: relative;
+}
+
+.s-hero img {
+    height: 100%;
+    width: 100%;
+    background-image: no-repeat center center / cover;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 5%; 
+    top: 20%;
+    background: white;
+    height: 450;
+    width: calc(45vw);
+    max-width: 800px;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 150px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#content h1 {
+    font-size: clamp(2vw, 2vw, 2vw);
+    font-weight: 400;
+}
+
+#content p {
+    font-size: clamp( 6px ,1vw, 1.3rem);
+    font-weight: 400;
+    color: #5B5676;
+    gap: 20px;
+}
+#content-button {
+    background: #F9F9F9;
+    color: black;
+    height: 56;
+    width: 170;
+    font-size: clamp(6px, 1vw, 1.5rem);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.proof-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    #proof-header {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .proof-content {
+        display: flex;
+    }    
+    .proof-container-1 {
+        display: flex;
+        flex-direction: column;
+        background-color: #F9F9F9;
+        width: 250px;
+        height: 244px;
+        align-items: center;
+        justify-content: center;
+        margin: 12px;
+        padding: 0 20px;
+        #h {
+            color: #2A254B;
+            font-size: clamp(1vw, 24px, 3vw);
+        }
+        #t {
+            color: #2A254B;
+            font-family: 'Satoshi', sans-serif;
+        }
+    }
+}
+
+
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    gap: 30px;
+}
+
+#productlist {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    div{
+    cursor: pointer;
+    }
+}
+
+.products #products-heading {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#product-desc {
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    width: auto;
+    height: auto;
+    padding-top: 15px;
+    gap: 10px;
+}
+
+#product-name { 
+    color: #2A254B;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#product-price { 
+    color: #2A254B;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    height: 550px;
+    gap: 20px;
+    >div{
+        min-height: 281px;
+        min-width: 342px;
+    }
+
+    #features-container-1 {
+        display: flex;
+        flex: 1;
+        background: #2A254B;
+        color: white;
+        #features-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+            padding: 60px;
+            
+            #h {
+                font-size: clamp(1vw, 32px, 3vw);
+                margin: 10px 0;
+                color: white;
+                font-weight: 400;
+            }
+            #t {
+                font-size: 18px;
+                color: white;
+                font-weight: 300;
+                font-family: "Satoshi", sans-serif;
+            }
+        }
+    }
+    #features-container-2 {
+        flex: 1;
+        background: url(https://www.figma.com/file/hqj8OWFaf13WMoejPo2cgc/image/d37e124a23bc7512aabb96d158dbac6d898734fb) no-repeat center center / cover;
+    }
+}
+
+
+.newsletter-container{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 444px;
+    width: 100%;
+    background: url(https://s3-alpha-sig.figma.com/img/27be/3038/bae4257d89397ead63485f276489b3fa?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=etmuG8rx3tuZ21TfV-kx5Xo5DfgRbiq-ajooCewZIKdMpH4rkP3S2XCgnVjjGslnpkPEsgwlkNX22MuIcwlolq64s5A4ZvP-J-CY7mD2zVnTwzvvwO2V6cNJmKt3dHIXfSqnu5JGsb7P7-7eVdhoXfb~85DfoVXN5hqwJyKvRjTfbIG7Ns7Ago2vkwGa7Ua9Lf5ZqOYLbskTlIRQ05dUIKmVxQPVIGaQc4ISOITmmEH1e-djsQI-6tX8hZ90Tyo4DqSjEt7HYjaBuUk~tDx7lMO~CLSvY-0Zj1Xmbh6j5PMkWCFOkA73eGXOF5mlLPYS~Dox5IU0oIsSRxQUmqbhjw__) no-repeat center center / cover;
+    #newsletter-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        color: white;
+        width: 40%;
+        text-align: center;
+        #h {
+            color: white;
+            font-size: 32px;
+        }
+        #t {
+            font-size: 18px;
+            color: white;
+            font-family: "Satoshi", sans-serif;
+            padding: 0 50px;
+        }
+        #c {
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            align-items: center;
+            align-self: center;
+            >div {
+                display: flex;
+                color: white;
+                align-items: center;
+                >div{
+                    color: white;
+                }
+                >img {
+                    border-radius: 50%;
+                }
+            }
+        }
+        >div:last-child {
+            display: flex;
+            width: 100%;
+            >#input-field {
+                flex: 2;
+                height: 50px;
+                width: 100%;
+                border: none;
+                color: rgba(42, 37, 75, 0.178);
+                padding: 0 0 0 30px;
+                font-family: "Satoshi", sans-serif;
+            }
+            >#input-submit {
+                flex: .9;
+                height: stretch;
+                width: 50px;
+                background: #2A254B;
+                border: none;
+                color: white;
+                font-family: "Satoshi", sans-serif;
+                font-size: 16px;
+            }
+        }
+        
+    }
 }
