@@ -79,7 +79,7 @@ export function ProductCard({ products = productDesc, count }: ProductProps) {
         <div id="productlist"> 
             {displayedProducts.map((product, index) => ( 
             <div key={index}> 
-                <Link href={`/product/${product.name.toLowerCase().replace(/\s+/g, '-')}`} style={{ textDecoration: 'none' }}> 
+                <Link href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`} style={{ textDecoration: 'none' }}> 
                     <div className="product-style"> 
                         <Image src={product.src} alt="Image" width={285} height={301} /> 
                         <div id="product-desc"> 

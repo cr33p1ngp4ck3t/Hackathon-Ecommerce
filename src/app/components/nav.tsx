@@ -10,8 +10,8 @@ export function Header() {
             <div className="header-container-1">
                 <img src="/search.png" alt="" />
                 <Link href={'/'} style={{textDecoration:"none"}}><div id="heading">Avion</div></Link>
-                <div>
-                    <img src="/shopcart.png" alt="" />
+                <div style={{padding: '0 10px'}}>
+                    <Link href={'/cart'}><img src="/shopcart.png" alt="" /></Link>
                     <img src="/user.png" alt="" />
                 </div>
             </div>  
@@ -127,7 +127,7 @@ export function HeaderProduct() {
                 </div>
                 <div style={{display:"flex", gap:"10px"}}>
                     <img src="/search.png" alt="" />
-                    <img src="/shopcart.png" alt="" />
+                    <Link href={'/cart'}><img src="/shopcart.png" alt="" /></Link>
                     <img src="/user.png" alt="" />
                 </div>
             </div>
