@@ -8,7 +8,7 @@ import { productDesc } from '../../components/productcard';
 import '../../style/page-product.css';
 import '../../style/style.css';
 
-type Params = {
+interface Params {
     product: string;
 }
 
