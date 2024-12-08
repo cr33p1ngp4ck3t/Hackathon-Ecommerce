@@ -8,7 +8,11 @@ import { productDesc } from '../../components/productcard';
 import '../../style/page-product.css';
 import '../../style/style.css';
 
-export default function Product ({ params }) {
+type Params = {
+    product: string;
+}
+
+export default function Product ({ params }:{params : Params}) {
     const { product } = params;
     const productDetails = productDesc.find(
         (p) => p.name.toLowerCase().replace(/\s+/g, '-') === product
