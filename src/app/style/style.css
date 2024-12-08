@@ -136,7 +136,7 @@
     right: 5%; 
     top: 20%;
     background: white;
-    height: 450;
+    height: 35vw;
     width: calc(45vw);
     max-width: 800px;
     align-items: center;
@@ -185,6 +185,8 @@
 
     .proof-content {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }    
     .proof-container-1 {
         display: flex;

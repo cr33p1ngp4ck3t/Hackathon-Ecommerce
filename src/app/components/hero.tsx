@@ -15,7 +15,7 @@ export default function Hero() {
                         </div>
                     </div>
                         <div style={{alignSelf:"start", margin:"10%"}}>
-                            <Link href="/shop" style={{flex:'1'}}><button id="content-button">View Collection</button></Link>
+                            <Link href="/products" style={{flex:'1'}}><button id="content-button">View Collection</button></Link>
                         </div>
                 </div>
             </div>

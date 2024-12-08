@@ -129,3 +129,69 @@
         
     }
 }
+
+.product-footer {
+    *{
+        color: white;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+    display: flex;
+    flex-direction: column;
+    background-color: #2A254B;
+
+    .product-footer-container {
+        display: flex;
+        border-bottom: 1px solid #726E8D;
+        margin: 50px 50px 10px;
+        #h {
+            flex: 1;
+            font-size: 36px;
+            margin: 20px 0;
+        }
+        #t {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            gap: 15px;
+            >div {
+                font-family: "Satoshi", sans-serif;
+
+            }
+        }
+
+        .product-footer-header {
+            display: flex;
+
+            #h:first-child{
+                flex: 2;
+            }
+            #h {
+                font-size: 16px;
+                flex: 1;
+                margin: 20px 0;
+            }
+        }
+        .product-footer-text {
+            display: flex;
+
+            #t:first-child{
+                flex: 2;
+            }
+            #t {
+                font-size: 14px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                font-family: "Satoshi", sans-serif;
+            }
+        }
+    }
+    .footer-copyright{ 
+        margin: 10px 50px;
+        >div {
+            font-family: "Satoshi", sans-serif;
+        }
+    }
+}
