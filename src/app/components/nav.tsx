@@ -103,7 +103,7 @@ export function HeaderProduct() {
         <div>
                 {
                     show && (
-                    <div style={{display:"flex", alignItems:"center", justifyContent:"center", background:"#2A254B", height:"40px"}}>
+                    <div style={{display:"flex", alignItems:"center", justifyContent:"center", background:"#2A254B", height:"40px", transition:"transform 1s ease"}}>
                         <div style={{display:"flex", color:"white", alignItems:"center", gap:"10px", flex:"2", justifyContent:"flex-end"}}>
                             <img src="/Deliveryx1.png" alt="" style={{filter:""}}/>
                             <div style={{fontSize:"14px", color:"white"}}>Free delivery on all orders over £50 with code easter checkout</div>
