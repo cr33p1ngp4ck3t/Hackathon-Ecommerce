@@ -249,10 +249,11 @@
         display: flex;
         flex-direction: column;
         background-color: #F9F9F9;
-        width: 270px;
+        width: 250px;
         height: 244px;
         align-items: center;
         justify-content: center;
+        padding: 0 20px;
         #h {
             color: #2A254B;
             font-size: clamp(1vw, 24px, 3vw);

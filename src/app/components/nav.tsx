@@ -60,8 +60,8 @@ export function Footer () {
 
                         </div>
                         <div className="x">
-                            <div>About us</div>
-                            <div>contact us</div>
+                        <Link href={'/about'}><div>About us</div></Link>
+                        <div>contact us</div>
                             <div>vacancies</div>
                             <div>Privacy</div>
                             <div>return policy</div>
@@ -208,8 +208,8 @@ export function FooterProduct() {
                                 <div>Crockery</div>
                             </div>
                             <div id="t">
-                                <div>About us</div>
-                                <div>contact us</div>
+                            <Link href={'/about'}><div>About us</div></Link>
+                            <div>contact us</div>
                                 <div>vacancies</div>
                                 <div>Privacy</div>
                                 <div>return policy</div>
@@ -252,7 +252,7 @@ export function AboutHeader() {
                             <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
                             <div className="header-icons-about">
                                 <div id="about-links">
-                                    <div>About us</div>
+                                    <Link href={'/about'}><div>About us</div></Link>
                                     <div>Contact</div>
                                     <div>Blog</div>
                                 </div>
