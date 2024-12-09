@@ -164,8 +164,8 @@
 #content-button {
     background: #F9F9F9;
     color: black;
-    height: 56;
-    width: 170;
+    height: 56px;
+    width: 170px;
     font-size: clamp(6px, 1vw, 1.5rem);
     text-align: center;
     border: none;
