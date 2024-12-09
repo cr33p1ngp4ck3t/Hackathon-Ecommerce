@@ -10,7 +10,7 @@ export default function FeaturedProduct() {
                     <Product count={4}/>
                 </div>
                 <div>
-                    <Link href=""><button id="content-button">View Collection</button></Link>
+                    <Link href="/products"><button id="content-button">View Collection</button></Link>
                 </div>
             </div>
         </div>
