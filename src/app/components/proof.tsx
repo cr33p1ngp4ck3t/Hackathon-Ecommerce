@@ -31,9 +31,11 @@ const content= [
 
 export default function Proof() {
     const pathname = usePathname(); 
-    const isHomePage = pathname === '/';
+    const isHomePage = (pathname === '/') || (pathname === '/about');
     return (
         <>
+        <div>
+
             <div className="proof-container">
                 <div id="proof-header">
                     <div id="h">What Makes Our Brand Different</div>
@@ -52,6 +54,7 @@ export default function Proof() {
                     }
                 </div>
             </div>
+        </div>
         </>
     )
 

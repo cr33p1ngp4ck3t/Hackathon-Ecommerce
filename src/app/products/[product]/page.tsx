@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import FeaturedProduct from '../../components/featuredproducts';
-import FooterProduct, { HeaderProduct } from '../../components/nav';
+import { FooterProduct,  HeaderProduct } from '../../components/nav';
 import Newsletter from '../../components/newsletter';
 import Proof from '../../components/proof';
 import { productDesc } from '../../components/productcard';
@@ -30,53 +30,56 @@ const ProductPage = async ({ params }: ProductProps) => {
                 <div className="container-2">
                     <div className="container-desc">
                         <div>
-                            <div style={{ fontSize: '36px' }}>{productDetails.name}</div>
-                            <div style={{ fontSize: '24px' }}>£{productDetails.price}</div>
+                            <div className="product-name">{productDetails.name}</div>
+                            <div className="product-price">£{productDetails.price}</div>
                         </div>
                         <div>
                             <div>Description</div>
-                            <div style={{ fontFamily: 'Satoshi, sans-serif' }}>
+                            <div className="product-desc">
                                 A timeless design, with premium materials features as one of our most popular and iconic pieces. The dandy chair is perfect for any stylish living space with beech legs and lambskin leather upholstery.
                             </div>
-                            <ul style={{ fontFamily: 'Satoshi, sans-serif', marginTop: '20px' }}>
-                                <li style={{ fontFamily: 'Satoshi, sans-serif'}}>Premium material</li>
-                                <li style={{ fontFamily: 'Satoshi, sans-serif'}}>Handmade upholstery</li>
-                                <li style={{ fontFamily: 'Satoshi, sans-serif'}}>Quality timeless classic</li>
+                            <ul className="product-features">
+                                <li>Premium material</li>
+                                <li>Handmade upholstery</li>
+                                <li>Quality timeless classic</li>
                             </ul>
                         </div>
-                        <div style={{ width: '250px' }}>
-                            <div style={{ padding: '10px 0' }}>Dimension</div>
-                            <div style={{ display: 'flex' }}>
-                                <div style={{ flex: '1', fontFamily: 'Satoshi, sans-serif', padding: '10px 0', color: '#2A254B' }}>Height</div>
-                                <div style={{ flex: '1', fontFamily: 'Satoshi, sans-serif', padding: '10px 0', color: '#2A254B' }}>Width</div>
-                                <div style={{ flex: '1', fontFamily: 'Satoshi, sans-serif', padding: '10px 0', color: '#2A254B' }}>Depth</div>
+                        <div className="product-dimensions">
+                            <div>Dimension</div>
+                            <div className="dimensions-row">
+                                <div className="dimension-label">Height</div>
+                                <div className="dimension-label">Width</div>
+                                <div className="dimension-label">Depth</div>
                             </div>
-                            <div style={{ display: 'flex' }}>
-                                <div style={{ flex: '1', fontFamily: 'Satoshi, sans-serif', padding: '10px 0', color: '#505977' }}>110cm</div>
-                                <div style={{ flex: '1', fontFamily: 'Satoshi, sans-serif', padding: '10px 0', color: '#505977' }}>75cm</div>
-                                <div style={{ flex: '1', fontFamily: 'Satoshi, sans-serif', padding: '10px 0', color: '#505977' }}>50cm</div>
+                            <div className="dimensions-row">
+                                <div className="dimension-value">110cm</div>
+                                <div className="dimension-value">75cm</div>
+                                <div className="dimension-value">50cm</div>
                             </div>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div style={{ flex: '1', display: 'flex', height: '46px', alignItems: 'center' }}>
+                        <div className="product-actions">
+                            <div className="product-amount">
                                 Amount
-                                <span style={{ background: '#F9F9F9', width: '122px', textAlign: 'center', height: '100%', alignContent: 'center' }}>1</span>
+                                <span className="amount-value">1</span>
                             </div>
-                            <div style={{ display: 'flex', flex: '1', height: '100%', width: '100%', justifyContent: 'flex-end' }}>
-                                <button style={{ color: 'white', background: '#2A254B', width: '150px', height: '100%', border: 'none' }}>Add to Cart</button>
+                            <div className="add-to-cart">
+                                <button className="cart-button">Add to Cart</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ margin: '0 0 20px 60px', fontSize: '32px' }}>You Might Also Like</div>
+            <br />
+            <br />
+            <br />
+            <div className="related-products">
+                <div className="related-title">You Might Also Like</div>
                 <FeaturedProduct />
             </div>
-            <div style={{ marginTop: '60px' }}>
+            <div className="proof-section">
                 <Proof />
             </div>
-            <div>
+            <div className="newsletter-section">
                 <Newsletter />
             </div>
             <FooterProduct />

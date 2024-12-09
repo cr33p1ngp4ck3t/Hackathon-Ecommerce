@@ -53,11 +53,13 @@
         .footer-content {
             display: flex;
             gap: 50px;
+            flex-wrap: wrap;
             margin-bottom: 20px;
             color: white;
             flex-direction: column;
            #footer-content-1>div{ 
             display: flex;
+            flex-wrap: wrap;
             color: white;
             margin: 10px;
             >div {
@@ -67,6 +69,7 @@
             }
            }
            #footer-content-2 {
+            flex-wrap: wrap;
             >.x {
                 flex: 1;
                 >div{
@@ -111,13 +114,14 @@
         color: white;
         border-top: 1px solid rgba(78, 77, 147, 1);
         padding: 20px 0;
+        flex-wrap: wrap;
+        gap: 10px;
         >div{
             color: white;
         }
         }
     }
 }
-
 
 .s-hero {
     position: relative;
@@ -129,7 +133,7 @@
     background-image: no-repeat center center / cover;
 }
 
-#container {
+.container {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -144,33 +148,83 @@
     min-width: 150px;
 }
 
-#content {
+.content {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-#content h1 {
+.content h1 {
     font-size: clamp(2vw, 2vw, 2vw);
     font-weight: 400;
 }
 
-#content p {
-    font-size: clamp( 6px ,1vw, 1.3rem);
+.content p {
+    font-size: clamp(6px, 1vw, 1.3rem);
     font-weight: 400;
     color: #5B5676;
     gap: 20px;
 }
-#content-button {
+
+.content-button {
     background: #F9F9F9;
     color: black;
-    height: 56px;
-    width: 170px;
-    font-size: clamp(6px, 1vw, 1.5rem);
+    height: clamp(50px, 6vw, 8vw);
+    width: clamp(170px, 12vw, 12vw);
+    font-size: clamp(14px, 1vw, 1.5rem);
     text-align: center;
     border: none;
     cursor: pointer;
 }
+
+/* Mobile styles */
+.s-hero-mobile {
+    position: relative;
+}
+
+.s-hero-mobile img {
+    height: 100%;
+    width: 100%;
+    background-image: no-repeat center center / cover;
+}
+
+.container-mobile {
+    background: white;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content-mobile h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.content-mobile p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #5B5676;
+    gap: 10px;
+}
+
+.content-button-mobile {
+    background: #F9F9F9;
+    color: black;
+    height: 40px;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
 
 .proof-container {
     display: flex;
@@ -181,23 +235,24 @@
     #proof-header {
         font-size: 24px;
         font-weight: 400;
+        padding: 20px 0;
     }
 
     .proof-content {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
+
     }    
     .proof-container-1 {
         display: flex;
         flex-direction: column;
         background-color: #F9F9F9;
-        width: 250px;
+        width: 270px;
         height: 244px;
         align-items: center;
         justify-content: center;
-        margin: 10px;
-        padding: 0 20px;
         #h {
             color: #2A254B;
             font-size: clamp(1vw, 24px, 3vw);
@@ -222,13 +277,31 @@
 
 #productlist {
     display: flex;
-    flex: 1;
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
     justify-content: center;
     div{
     cursor: pointer;
+    }
+    img {
+        
+       width: 285px;
+       height: 301px;
+       
+       
+    }
+}
+@media (max-width:425px) {
+    #productlist {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);     
+        justify-items: center;
+
+        img {
+        width: 163px;
+        height: 201px;
+        }
     }
 }
 
@@ -282,15 +355,16 @@
             justify-content: space-between;
             color: white;
             padding: 60px;
+            gap: 20px;
             
             #h {
-                font-size: clamp(1vw, 32px, 3vw);
+                font-size: clamp(24px, 32px, 3vw);
                 margin: 10px 0;
                 color: white;
                 font-weight: 400;
             }
             #t {
-                font-size: 18px;
+                font-size: clamp(14px, 18px, 2vw);
                 color: white;
                 font-weight: 300;
                 font-family: "Satoshi", sans-serif;
@@ -308,6 +382,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     height: 444px;
     width: 100%;
     background: url(https://s3-alpha-sig.figma.com/img/27be/3038/bae4257d89397ead63485f276489b3fa?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=etmuG8rx3tuZ21TfV-kx5Xo5DfgRbiq-ajooCewZIKdMpH4rkP3S2XCgnVjjGslnpkPEsgwlkNX22MuIcwlolq64s5A4ZvP-J-CY7mD2zVnTwzvvwO2V6cNJmKt3dHIXfSqnu5JGsb7P7-7eVdhoXfb~85DfoVXN5hqwJyKvRjTfbIG7Ns7Ago2vkwGa7Ua9Lf5ZqOYLbskTlIRQ05dUIKmVxQPVIGaQc4ISOITmmEH1e-djsQI-6tX8hZ90Tyo4DqSjEt7HYjaBuUk~tDx7lMO~CLSvY-0Zj1Xmbh6j5PMkWCFOkA73eGXOF5mlLPYS~Dox5IU0oIsSRxQUmqbhjw__) no-repeat center center / cover;
@@ -316,19 +391,20 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 30px;
         color: white;
         width: 40%;
         text-align: center;
         #h {
             color: white;
-            font-size: 32px;
+            font-size: clamp(16px, 3vw, 3vw);
         }
         #t {
-            font-size: 18px;
+            font-size: clamp(14px, 1.5vw, 3vw);
             color: white;
             font-family: "Satoshi", sans-serif;
-            padding: 0 50px;
+            padding: 0 4vw;
         }
         #c {
             color: white;
@@ -340,9 +416,11 @@
             >div {
                 display: flex;
                 color: white;
+                flex-wrap: wrap;
                 align-items: center;
                 >div{
                     color: white;
+                    font-size: clamp(14px, 1.5vw, 2vw);
                 }
                 >img {
                     border-radius: 50%;
@@ -354,7 +432,7 @@
             width: 100%;
             >#input-field {
                 flex: 2;
-                height: 50px;
+                height: 5vw;
                 width: 100%;
                 border: none;
                 color: rgba(42, 37, 75, 0.178);
@@ -364,14 +442,94 @@
             >#input-submit {
                 flex: .9;
                 height: stretch;
-                width: 50px;
+                width: 5vw;
                 background: #2A254B;
                 border: none;
                 color: white;
                 font-family: "Satoshi", sans-serif;
-                font-size: 16px;
+                font-size: clamp(14px, 1.5vw, 2vw);
             }
         }
         
     }
+}
+
+@media (max-width:425px) {
+    .newsletter-container{ 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 444px;
+        width: 100%;
+        text-align: start;
+        padding: 20px;
+        background: url(https://s3-alpha-sig.figma.com/img/27be/3038/bae4257d89397ead63485f276489b3fa?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=etmuG8rx3tuZ21TfV-kx5Xo5DfgRbiq-ajooCewZIKdMpH4rkP3S2XCgnVjjGslnpkPEsgwlkNX22MuIcwlolq64s5A4ZvP-J-CY7mD2zVnTwzvvwO2V6cNJmKt3dHIXfSqnu5JGsb7P7-7eVdhoXfb~85DfoVXN5hqwJyKvRjTfbIG7Ns7Ago2vkwGa7Ua9Lf5ZqOYLbskTlIRQ05dUIKmVxQPVIGaQc4ISOITmmEH1e-djsQI-6tX8hZ90Tyo4DqSjEt7HYjaBuUk~tDx7lMO~CLSvY-0Zj1Xmbh6j5PMkWCFOkA73eGXOF5mlLPYS~Dox5IU0oIsSRxQUmqbhjw__) no-repeat center center / cover;
+            #newsletter-content {
+                display: flex;
+                flex-direction: column;
+                text-align: start;
+                flex-wrap: wrap;
+                gap: 30px;
+                color: white;
+                width: 100%;
+                justify-items: flex-end;
+                #h {
+                    color: white;
+                    font-size: clamp(24px, 3vw, 3vw);
+                    text-align: start;
+                }
+                #t {
+                    font-size: clamp(16px, 1.5vw, 3vw);
+                    color: white;
+                    font-family: "Satoshi", sans-serif;
+                    padding: 0;
+                }  
+            #c {
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 100%;
+                align-items: start;
+                gap: 10px;
+                >div {
+                    display: flex;
+                    color: white;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    >div{
+                        color: white;
+                        font-size: clamp(14px, 1.5vw, 2vw);
+                    }
+                    >img {
+                        border-radius: 50%;
+                    }
+                }
+            }
+            >div:last-child {
+                display: flex;
+                width: 100%;
+                >#input-field {
+                    flex: 2;
+                    height: 56px;
+                    width: 100%;
+                    border: none;
+                    color: rgba(42, 37, 75, 0.178);
+                    padding: 0 0 0 30px;
+                    font-family: "Satoshi", sans-serif;
+                }
+                >#input-submit {
+                    flex: .9;
+                    height: stretch;
+                    width: 10vw;
+                    background: #2A254B;
+                    border: none;
+                    color: white;
+                    font-family: "Satoshi", sans-serif;
+                    font-size: clamp(14px, 1.5vw, 2vw);
+                }
+            }
+        }
+    }          
 }

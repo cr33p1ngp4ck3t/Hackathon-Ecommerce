@@ -1,5 +1,6 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import "../style/style.css"
 
 type Product = {
     src: string;
@@ -81,7 +82,7 @@ export function ProductCard({ products = productDesc, count }: ProductProps) {
             <div key={index}> 
                 <Link href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`} style={{ textDecoration: 'none' }}> 
                     <div className="product-style"> 
-                        <Image src={product.src} alt="Image" width={285} height={301} /> 
+                        <img src={product.src} alt="Image" /> 
                         <div id="product-desc"> 
                             <div id="product-name">{product.name}</div> 
                             <div id="product-price">£{product.price}</div> 
@@ -94,6 +95,10 @@ export function ProductCard({ products = productDesc, count }: ProductProps) {
     )
  } export default function Product({ products = productDesc, count }: ProductProps) { 
     return(
-        <ProductCard products={products} count={count} />
+        <div style={{display:"flex", flexDirection:"column", gap:"20px", justifyContent:"center"}}>
+            <ProductCard products={products} count={count} />
+            <div style={{width:"100%", display:"flex", justifyContent:"center"}}><Link href={'/products'}><button className="content-button" style={{background:"#F9F9F9", color:""}}>View Collection</button></Link></div>
+        </div>
+        
     ) 
 }

@@ -1,7 +1,6 @@
 "use client"
-
 import Link from "next/link";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 /* eslint-disable @next/next/no-img-element */
 export function Header() {
@@ -92,50 +91,76 @@ export function Footer () {
     )
 }
 
-
 export function HeaderProduct() {
-
     const [show, setShow] = useState(true);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
     const Close = () => {
         setShow(false);
-    }
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize()
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, [isMobile]);
+
     return (
         <div>
-                {
-                    show && (
-                    <div style={{display:"flex", alignItems:"center", justifyContent:"center", background:"#2A254B", height:"40px", transition:"transform 1s ease"}}>
-                        <div style={{display:"flex", color:"white", alignItems:"center", gap:"10px", flex:"2", justifyContent:"flex-end"}}>
-                            <img src="/Deliveryx1.png" alt="" style={{filter:""}}/>
-                            <div style={{fontSize:"14px", color:"white"}}>Free delivery on all orders over £50 with code easter checkout</div>
-                        </div>
-                        <div style={{display:"flex", justifyContent:"flex-end", alignItems:"flex-end", flex:'1', cursor:"pointer"}}><img src="/Close.png" alt="" onClick={Close}/></div>
+            {show && (
+                <div className="promo-bar">
+                    <div className="promo-content">
+                        <img src="/Deliveryx1.png" alt="Delivery" className="promo-image"/>
+                        <div className="promo-text">Free delivery on all orders over £50 with code easter checkout</div>
                     </div>
-                    )
-                }
+                    <div className="close-icon" onClick={Close}>
+                        <img src="/Close.png" alt="Close" />
+                    </div>
+                </div>
+            )}
             <div className="header-container-product">
-                <Link href={'/'} style={{textDecoration:"none"}}><div id="heading">Avion</div></Link>
-                <div className="header-container-1">
-                    <div className="header-container-items">
-                        <div>Plant Pots</div>
-                        <div>Ceramics</div>
-                        <div>Tables</div>
-                        <div>Chairs</div>
-                        <div>Crockery</div>
-                        <div>Tableware</div>
-                        <div>Cutlery</div>
+                <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
+
+                {!isMobile ? (
+                    <>
+                        <div className="header-container-1">
+                            <div className="header-container-items">
+                                <div>Plant Pots</div>
+                                <div>Ceramics</div>
+                                <div>Tables</div>
+                                <div>Chairs</div>
+                                <div>Crockery</div>
+                                <div>Tableware</div>
+                                <div>Cutlery</div>
+                            </div>
+                        </div>
+                        <div className="header-icons">
+                            <img src="/search.png" alt="Search" />
+                            <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
+                            <img src="/user.png" alt="User" />
+                        </div>
+                    </>
+                ) : 
+                (
+                    <div className="hamburger-menu">
+                        <div className="hamburger-icon">
+                            <img src="/search.png" alt="Search" />
+                            <img src="/menu.png" alt="Menu" />
+                        </div>
                     </div>
-                </div>
-                <div style={{display:"flex", gap:"10px"}}>
-                    <img src="/search.png" alt="" />
-                    <Link href={'/cart'}><img src="/shopcart.png" alt="" /></Link>
-                    <img src="/user.png" alt="" />
-                </div>
+                )}
             </div>
         </div>
-    )
+    );
 }
 
-export default function FooterProduct() {
+
+
+export function FooterProduct() {
     return( 
         <div>
             <div className="product-footer">
@@ -196,6 +221,58 @@ export default function FooterProduct() {
                 </div>
                 <div className="footer-copyright">
                     <div style={{fontSize:"14px", alignContent:"center"}}>Copyright 2022 Avion LTD</div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function AboutHeader() {
+    const [show, setShow] = useState(true);
+    const Close = () => {
+        setShow(false);
+    };
+    return(
+            <div>
+                <div>
+                    <div>
+                    {show && (
+                        <div className="promo-bar">
+                            <div className="promo-content">
+                                <img src="/Deliveryx1.png" alt="Delivery" className="promo-image"/>
+                                <div className="promo-text">Free delivery on all orders over £50 with code easter checkout</div>
+                            </div>
+                            <div className="close-icon" onClick={Close}>
+                                <img src="/Close.png" alt="Close" />
+                            </div>
+                        </div>
+                    )}
+                    <div className="header-container-about">
+                        <div className="header-container-1">
+                            <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
+                            <div className="header-icons-about">
+                                <div id="about-links">
+                                    <div>About us</div>
+                                    <div>Contact</div>
+                                    <div>Blog</div>
+                                </div>
+                                <img src="/search.png" alt="Search" />
+                                <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
+                                <img src="/user.png" alt="User" />
+                            </div>
+                        </div>
+                        <div className="header-container-2">
+                            <div className="header-container-items">
+                                <div>Plant Pots</div>
+                                <div>Ceramics</div>
+                                <div>Tables</div>
+                                <div>Chairs</div>
+                                <div>Crockery</div>
+                                <div>Tableware</div>
+                                <div>Cutlery</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

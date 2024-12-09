@@ -1,0 +1,85 @@
+.header-container-about {
+    display: flex;
+    flex-direction: column;
+    height: 134px;
+
+    .header-container-1 {
+        display: flex;
+        height: calc(134px - 64px);
+        padding: 0 30px;
+        justify-content: space-between;
+        .header-icons-about{ 
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            #about-links {
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+    .header-container-2 {
+        display: flex;
+        justify-content: center;
+        height: 64px;
+        background: #F9F9F9;
+        .header-container-items {
+            justify-content: center;
+            color: #726E8D;
+        }
+    }
+}
+
+.about-features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 244px;
+    padding: 2% 7%;
+    >div:first-child {
+        width: 704px;
+        font-size: 36px;
+    }
+}
+
+.about-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    min-height: 603px;
+    background-color: #F9F9F9;
+    .about-services-1 {
+        display: flex;
+        flex: 1;
+        min-width: 300px;
+        background: url(https://s3-alpha-sig.figma.com/img/75f9/88a6/9e782fdeef5f60eca5a47456ecfd4df1?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ig1ZinG65CACx2Yefd0ZJ4yIEoeHnd87VIh2CDuJivZLtwijZU2WU-68hDY3DVHk59cKFuy6rh3h7jSTfME4VnBKs62EmT8-Bgg~N~ZJm6za9nPV2GaUmrrScjh7Stodv-HpnJ3ToQg45eFQnCX6J00a4~TqQeZzPrvEc6E2tpH7vxKPU8z7fdP0uLhbfLE2NCGVxbhMkwMf0ZtTzkT3nPFNi279EVwaSrEbIvIsysfoeM3t0y0W5cQG3R600qgzFo3nU62jyvkHKlg8~WaU6PHyCqSAwQfJgx1~6-32jRoF5I16GN7D3Mx5lI-WoMvHmqGHWDg~q6aaTG-pn3mIkw__) no-repeat center center / cover;
+        object-fit: cover;
+        object-position: center;
+        min-height: 425px;
+    }
+    .about-services-2{ 
+        display: flex;
+        min-width: 300px;
+        flex: 1;
+        padding: 5% 6% 3%;
+        flex-wrap: wrap;
+        .h {
+            font-size: 24px;
+        }
+        .t{ 
+            font-size: 18px;
+            font-family: "Satoshi", sans-serif;
+        }
+        .service-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            >div:last-child {
+                display: flex;
+                align-items: flex-end;
+                flex-wrap: wrap;
+                flex: 1;
+            }
+        }
+    }
+}
