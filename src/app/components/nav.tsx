@@ -161,29 +161,100 @@ export function HeaderProduct() {
 
 
 export function FooterProduct() {
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize()
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, [isMobile]);
+
     return( 
         <div>
-            <div className="product-footer">
-                <div className="product-footer-container">
-                    <div>
-                        <Link href={'/'} style={{textDecoration:"none"}}><div id="h">Avion</div></Link>
-                        <div id="t">
-                            <div>21 New York Street</div>
-                            <div>New York City</div>
-                            <div>United States of America</div>
-                            <div>432 34</div>
+            {
+                !isMobile ?
+                (
+                    
+                <div className="product-footer">
+                    <div className="product-footer-container">
+                        <div>
+                            <Link href={'/'} style={{textDecoration:"none"}}><div id="h">Avion</div></Link>
+                            <div id="t">
+                                <div>21 New York Street</div>
+                                <div>New York City</div>
+                                <div>United States of America</div>
+                                <div>432 34</div>
+                            </div>
+                        </div>
+                        <div style={{flex:'1', marginLeft:"50px"}}>
+                            <div className="product-footer-header">
+                                <div id="h">Social Links</div>
+                                <div id="h">Menu</div>
+                                <div id="h">Categories</div>
+                                <div id="h">Our Company</div>
+                            </div>
+                            <div className="product-footer-text">
+                                <div id="t">
+                                    <div style={{width:"40%", display:'flex', gap:"30px", cursor:"pointer"}}>
+                                        <img src="/Logo-linkedin.png" alt="" />
+                                        <img src="/Logo-facebook.png" alt="" />
+                                        <img src="/Logo-instagram.png" alt="" />
+                                        <img src="/Logo-skype.png" alt="" />
+                                        <img src="/Logo-twitter.png" alt="" />
+                                        <img src="/Logo-pinterest.png" alt="" />
+                                    </div>
+                                </div>
+                                <div id="t">
+                                    <div>New arrivals</div>
+                                    <div>Best sellers</div>
+                                    <div>Recently viewed</div>
+                                    <div>Popular this week</div>
+                                    <div>all product</div>
+                                </div>
+                                <div id="t">
+                                    <div>Crockery</div>
+                                    <div>furniture</div>
+                                    <div>Homeware</div>
+                                    <div>Plant pot</div>
+                                    <div>Chair</div>
+                                    <div>Crockery</div>
+                                </div>
+                                <div id="t">
+                                <Link href={'/about'}><div>About us</div></Link>
+                                <div>contact us</div>
+                                    <div>vacancies</div>
+                                    <div>Privacy</div>
+                                    <div>return policy</div>
+                                </div>
+                            </div>
+                    <br /> 
+                    <br /> 
                         </div>
                     </div>
-                    <div style={{flex:'1', marginLeft:"50px"}}>
-                        <div className="product-footer-header">
-                            <div id="h">Social Links</div>
-                            <div id="h">Menu</div>
-                            <div id="h">Categories</div>
-                            <div id="h">Our Company</div>
-                        </div>
-                        <div className="product-footer-text">
-                            <div id="t">
-                                <div style={{width:"40%", display:'flex', gap:"30px", cursor:"pointer"}}>
+                    <div className="footer-copyright">
+                        <div style={{fontSize:"14px", alignContent:"center"}}>Copyright 2022 Avion LTD</div>
+                    </div>
+                </div>
+                ) : (
+                    <div style={{background:"#2A254B", height:"100%", width:"100%", color:"white", marginTop:"30px"}}>
+                        <div style={{display:"grid", gridTemplateColumns:"repeat(2, 1fr)", textTransform:"capitalize", margin:"20px", paddingTop:"30px"}}>
+                            <div>
+                                <Link href={'/'} style={{textDecoration:"none"}}><div style={{fontSize:"36px", color:"white", padding:"5px"}}>Avion</div></Link>
+                                <div>
+                                    <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>21 New York Street</div>
+                                    <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>New York City</div>
+                                    <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>United States of America</div>
+                                    <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>432 34</div>
+                                </div>
+                            </div>
+                            <div style={{padding:"10px 0"}}>
+                                <div style={{fontSize:"16px", padding:"15px 0 ", color:"white"}}>Social Links</div>
+                                <div style={{width:"40%", display:'grid', gridTemplateColumns:"repeat(3, 1fr)", gap:"30px", cursor:"pointer"}}>
                                     <img src="/Logo-linkedin.png" alt="" />
                                     <img src="/Logo-facebook.png" alt="" />
                                     <img src="/Logo-instagram.png" alt="" />
@@ -192,37 +263,29 @@ export function FooterProduct() {
                                     <img src="/Logo-pinterest.png" alt="" />
                                 </div>
                             </div>
-                            <div id="t">
-                                <div>New arrivals</div>
-                                <div>Best sellers</div>
-                                <div>Recently viewed</div>
-                                <div>Popular this week</div>
-                                <div>all product</div>
-                            </div>
-                            <div id="t">
-                                <div>Crockery</div>
-                                <div>furniture</div>
-                                <div>Homeware</div>
-                                <div>Plant pot</div>
-                                <div>Chair</div>
-                                <div>Crockery</div>
-                            </div>
-                            <div id="t">
-                            <Link href={'/about'}><div>About us</div></Link>
-                            <div>contact us</div>
-                                <div>vacancies</div>
-                                <div>Privacy</div>
-                                <div>return policy</div>
+                            <div>
+                                <div style={{fontSize:"16px", padding:"10px 0",color:"white"}}>Menu</div>
+                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>New arrivals</div>
+                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>Best sellers</div>
+                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>Recently viewed</div>
+                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>Popular this week</div>
+                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>all product</div>
+                           </div>
+                            <div>
+                                <div style={{fontSize:"16px", color:"white", padding:"10px 0"}} >Our Company</div>
+                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0"}}>About us</div></Link>
+                                <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>contact us</div>
+                                <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>vacancies</div>
+                                <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>Privacy</div>
+                                <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>return policy</div>
                             </div>
                         </div>
-                <br /> 
-                <br /> 
+                        <div style={{padding:"20px 20px 0"}}>
+                            <div style={{fontSize:"14px", alignContent:"center", color:"white", padding:"20px 0", borderTop:"1px solid #4E4D93"}}>Copyright 2022 Avion LTD</div>
+                        </div>
                     </div>
-                </div>
-                <div className="footer-copyright">
-                    <div style={{fontSize:"14px", alignContent:"center"}}>Copyright 2022 Avion LTD</div>
-                </div>
-            </div>
+                )
+            }
         </div>
     )
 }
