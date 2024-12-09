@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import FeaturedProduct from './featuredproducts';
-import FooterProduct, { HeaderProduct } from './nav';
+import {FooterProduct, HeaderProduct } from './nav';
 import Newsletter from './newsletter';
 import Proof from './proof';
 import { productDesc } from './productcard';
