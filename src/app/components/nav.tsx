@@ -21,6 +21,25 @@ export function Header() {
                 <div className="header-container">
                     <div className="header-container-1">
                         <Link href={'/'} style={{textDecoration:"none"}}><div id="heading">Avion</div></Link>
+                        <div>
+                            {
+                                !isMobile ? (
+                                    <div>
+                                        <img src="/search.png" alt="" />
+                                        <img src="/shopcart.png" alt="" />
+                                        <img src="/user.png" alt="" />
+                                    </div>
+                                ): (
+                                    <div className="hamburger-menu">
+                                        <div className="hamburger-icon">
+                                            <img src="/search.png" alt="" />
+                                            <img src="/menu.png" alt="Menu" />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
             {
                 !isMobile ? (
                     <><div style={{ borderBottom: "1px solid lightgray", width: "100%" }}></div><div className="header-container-2">
@@ -36,21 +55,15 @@ export function Header() {
                         </div></>
                 ) :
                 (
-                    <div className="hamburger-menu">
-                        <div className="hamburger-icon">
-                <img src="/search.png" alt="" />
+                    <div>
 
-                            <img src="/menu.png" alt="Menu" />
-                        </div>
                     </div>
                 )
             }
             </div>  
-            </div>
         </div>
     )
 }
-
 export function Footer () {
     const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
 
