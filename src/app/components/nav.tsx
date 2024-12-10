@@ -111,7 +111,7 @@ export function Footer () {
 
                             </div>
                             <div className="x">
-                            <Link href={'/about' style={{color:"white"}}><div>About us</div></Link>
+                            <Link href={'/about'} style={{color:"white"}}><div>About us</div></Link>
                             <div>contact us</div>
                                 <div>vacancies</div>
                                 <div>Privacy</div>
