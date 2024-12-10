@@ -111,7 +111,7 @@ export function Footer () {
 
                             </div>
                             <div className="x">
-                            <Link href={'/about'}><div>About us</div></Link>
+                            <Link href={'/about' style={{color:"white"}}><div>About us</div></Link>
                             <div>contact us</div>
                                 <div>vacancies</div>
                                 <div>Privacy</div>
@@ -420,14 +420,30 @@ export function AboutHeader() {
                     <div className="header-container-1">
                         <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
                         <div className="header-icons-about">
-                            <div id="about-links">
-                                <Link href={'/about'}><div>About us</div></Link>
-                                <div>Contact</div>
-                                <div>Blog</div>
-                            </div>
-                            <img src="/search.png" alt="Search" />
-                            <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
-                            <img src="/user.png" alt="User" />
+                            {
+                                !isMobile ? (
+                                    <div>
+                                        <div id="about-links">
+                                            <Link href={'/about'}><div>About us</div></Link>
+                                            <div>Contact</div>
+                                            <div>Blog</div>
+                                        </div>
+                                        <img src="/search.png" alt="Search" />
+                                        <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
+                                        <img src="/user.png" alt="User" />
+                                    </div>
+                                    
+                                ): (
+                                         <div className="hamburger-menu">
+                                            <div className="hamburger-icon">
+                                                <img src="/search.png" alt="Search" />
+                                                <img src="/menu.png" alt="Menu" />
+                                            </div>
+                                        </div>
+                                        
+                                )
+                            
+                            }
                         </div>
                     </div>
                         {
@@ -451,11 +467,9 @@ export function AboutHeader() {
                                 </>
                             ) : (
                                 
-                                <div className="hamburger-menu">
-                                    <div className="hamburger-icon">
-                                        <img src="/menu.png" alt="Menu" />
-                                    </div>
-                                </div>
+                               <div>
+                               
+                               </div>
                                 
                             )
                         }
