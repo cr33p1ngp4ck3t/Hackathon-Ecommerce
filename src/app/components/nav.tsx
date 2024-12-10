@@ -402,63 +402,63 @@ export function AboutHeader() {
     }, [isMobile]);
 
     return(
+        <div>
             <div>
                 <div>
-                    <div>
-                    {show && (
-                        <div className="promo-bar">
-                            <div className="promo-content">
-                                <img src="/Deliveryx1.png" alt="Delivery" className="promo-image"/>
-                                <div className="promo-text">Free delivery on all orders over £50 with code easter checkout</div>
-                            </div>
-                            <div className="close-icon" onClick={Close}>
-                                <img src="/Close.png" alt="Close" />
-                            </div>
+                {show && (
+                    <div className="promo-bar">
+                        <div className="promo-content">
+                            <img src="/Deliveryx1.png" alt="Delivery" className="promo-image"/>
+                            <div className="promo-text">Free delivery on all orders over £50 with code easter checkout</div>
                         </div>
-                    )}
-                    <div className="header-container-about">
-                        <div className="header-container-1">
-                            <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
-                            {
-                                !isMobile ? (
-                                    <>
-                                    <div>
-
-
-                                        <div className="header-icons-about">
-                                            <div id="about-links">
-                                                <Link href={'/about'}><div>About us</div></Link>
-                                                <div>Contact</div>
-                                                <div>Blog</div>
-                                            </div>
-                                            <img src="/search.png" alt="Search" />
-                                            <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
-                                            <img src="/user.png" alt="User" />
-                                        </div>
-                                        <div className="header-container-2">
-                                            <div className="header-container-items">
-                                                <div>Plant Pots</div>
-                                                <div>Ceramics</div>
-                                                <div>Tables</div>
-                                                <div>Chairs</div>
-                                                <div>Crockery</div>
-                                                <div>Tableware</div>
-                                                <div>Cutlery</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </>
-                                ) : (
-                                    
-                                    <div className="hamburger-menu">
-                                        <div className="hamburger-icon">
-                                            <img src="/menu.png" alt="Menu" />
-                                        </div>
-                                    </div>
-                                    
-                                )
-                            }
+                        <div className="close-icon" onClick={Close}>
+                            <img src="/Close.png" alt="Close" />
+                        </div>
                     </div>
+                )}
+                <div className="header-container-about">
+                    <div className="header-container-1">
+                        <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
+                        <div className="header-icons-about">
+                            <div id="about-links">
+                                <Link href={'/about'}><div>About us</div></Link>
+                                <div>Contact</div>
+                                <div>Blog</div>
+                            </div>
+                            <img src="/search.png" alt="Search" />
+                            <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
+                            <img src="/user.png" alt="User" />
+                        </div>
+                    </div>
+                        {
+                            !isMobile ? (
+                                <>
+                                <div>
+
+
+                                    <div className="header-container-2">
+                                        <div className="header-container-items">
+                                            <div>Plant Pots</div>
+                                            <div>Ceramics</div>
+                                            <div>Tables</div>
+                                            <div>Chairs</div>
+                                            <div>Crockery</div>
+                                            <div>Tableware</div>
+                                            <div>Cutlery</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </>
+                            ) : (
+                                
+                                <div className="hamburger-menu">
+                                    <div className="hamburger-icon">
+                                        <img src="/menu.png" alt="Menu" />
+                                    </div>
+                                </div>
+                                
+                            )
+                        }
                 </div>
             </div>
         </div>
