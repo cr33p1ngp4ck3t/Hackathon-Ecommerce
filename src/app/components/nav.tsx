@@ -422,7 +422,7 @@ export function AboutHeader() {
                         <div className="header-icons-about">
                             {
                                 !isMobile ? (
-                                    <div>
+                                    <div className="header-icons-about">
                                         <div id="about-links">
                                             <Link href={'/about'}><div>About us</div></Link>
                                             <div>Contact</div>
