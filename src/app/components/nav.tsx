@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useEffect, useState } from "react"
+import Menu from "./menu";
 
 /* eslint-disable @next/next/no-img-element */
 export function Header() {
@@ -24,9 +25,9 @@ export function Header() {
                         <div>
                             {
                                 !isMobile ? (
-                                    <div>
+                                    <div style={{display:"flex", gap:"20px", alignItems:"center", justifyContent:"center",}}>
                                         <img src="/search.png" alt="" />
-                                        <img src="/shopcart.png" alt="" />
+                                        <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
                                         <img src="/user.png" alt="" />
                                     </div>
                                 ): (
@@ -111,7 +112,7 @@ export function Footer () {
 
                             </div>
                             <div className="x">
-                            <Link href={'/about'} style={{color:"white"}}><div>About us</div></Link>
+                            <div><Link href={'/about'} style={{color:"white", fontFamily:"Satoshi, sans-serif", textDecoration:'none'}}>About us</Link></div>
                             <div>contact us</div>
                                 <div>vacancies</div>
                                 <div>Privacy</div>
@@ -318,7 +319,7 @@ export function FooterProduct() {
                                     <div>Crockery</div>
                                 </div>
                                 <div id="t">
-                                <Link href={'/about'}><div>About us</div></Link>
+                                <div><Link href={'/about'} style={{color:"white", fontFamily:"Satoshi, sans-serif", textDecoration:'none'}}>About us</Link></div>
                                 <div>contact us</div>
                                     <div>vacancies</div>
                                     <div>Privacy</div>
@@ -366,7 +367,7 @@ export function FooterProduct() {
                            </div>
                             <div>
                                 <div style={{fontSize:"16px", color:"white", padding:"10px 0"}} >Our Company</div>
-                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0"}}>About us</div></Link>
+                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0", textDecoration:"none"}}>About us</div></Link>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>contact us</div>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>vacancies</div>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>Privacy</div>
@@ -401,6 +402,11 @@ export function AboutHeader() {
         return () => window.removeEventListener("resize", handleResize);
     }, [isMobile]);
 
+    // const [menu, setMenu] =useState (false);
+    // const handleMenu= () => {
+    //     setMenu(!menu)
+    // }
+
     return(
         <div>
             <div>
@@ -424,8 +430,8 @@ export function AboutHeader() {
                                 !isMobile ? (
                                     <div className="header-icons-about">
                                         <div id="about-links">
-                                            <Link href={'/about'}><div>About us</div></Link>
-                                            <div>Contact</div>
+                                        <div><Link href={'/about'} style={{textDecoration:'none'}}>About us</Link></div>
+                                        <div>Contact</div>
                                             <div>Blog</div>
                                         </div>
                                         <img src="/search.png" alt="Search" />
@@ -434,18 +440,42 @@ export function AboutHeader() {
                                     </div>
                                     
                                 ): (
-                                         <div className="hamburger-menu">
-                                            <div className="hamburger-icon">
-                                                <img src="/search.png" alt="Search" />
-                                                <img src="/menu.png" alt="Menu" />
-                                            </div>
+                                    <div className="hamburger-menu">
+                                        <div className="hamburger-icon">
+                                            <img src="/search.png" alt="Search" />
+                                            {/* <img src="/menu.png" alt="Menu" onClick={handleMenu}/> */}
+                                            <Menu />
                                         </div>
-                                        
-                                )
+                                    </div>
+                                
+                            )
                             
-                            }
+                        }
                         </div>
                     </div>
+                        {/* {
+                            menu && (
+                                <div style={{width:"100%", height:"100vh", background:"white", zIndex:"100", position:"fixed"}}>
+                                    <div style={{margin:"70px"}}>
+                                        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+                                            <div style={{fontWeight:"bolder", fontSize:"20px"}}onClick={handleMenu}>X</div>
+                                            <img src="/user.png" alt="User"/>
+                                        </div>
+                                        <div style={{margin:" 30px 0"}}>
+                                            <div style={{display:"flex", flexDirection:'column', gap:"20px", fontSize:"24px", cursor:"pointer"}}>
+                                                <div>Plant Pots</div>
+                                                <div>Ceramics</div>
+                                                <div>Tables</div>
+                                                <div>Chairs</div>
+                                                <div>Crockery</div>
+                                                <div>Tableware</div>
+                                                <div>Cutlery</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        } */}
                         {
                             !isMobile ? (
                                 <>

@@ -13,9 +13,9 @@ export default function AboutPage() {
             <AboutHeader />
             <div>
                 <div className="about-features">
-                    <div style={{flex:"2", fontSize:"clamp(32px, 36px, 36px)"}}>A brand built on the love of craftmanship,
+                    <div >A brand built on the love of craftmanship,
                     quality and outstanding customer service</div>
-                    <div style={{width:"100%", display:"flex", justifyContent:"center", flex:"1"}}><Link href={'/products'}><button className="content-button" style={{background:"#F9F9F9", color:""}}>View Collection</button></Link></div>
+                    <Link href={'/products'} style={{ display:"flex", justifyContent:"center"}}><button className="content-button" style={{background:"#F9F9F9", color:""}}>View Collection</button></Link>
                 </div>
                 <br />
                 <br />

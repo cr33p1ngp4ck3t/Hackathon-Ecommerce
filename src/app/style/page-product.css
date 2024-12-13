@@ -93,6 +93,9 @@
         justify-content: flex-end;
         flex: 1;
     }
+    .hamburger-icon {
+        display: flex;
+    }
 
     .hamburger-icon img {
         width: 24px;

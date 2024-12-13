@@ -35,10 +35,10 @@
     justify-content: center;
     align-items: center;
     height: 244px;
-    padding: 2% 7%;
+    margin: 2% 7%;
     >div:first-child {
-        width: 704px;
         font-size: 36px;
+        max-width: 704px;
     }
 }
 
@@ -80,6 +80,22 @@
                 flex-wrap: wrap;
                 flex: 1;
             }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .about-features {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 3% 7%;
+        >div:first-child {
+            font-size: 32px;
+        }
+        >Link {
+            flex: 0;
         }
     }
 }
