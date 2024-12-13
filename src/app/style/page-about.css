@@ -32,7 +32,7 @@
 
 .about-features {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 244px;
     margin: 2% 7%;
@@ -88,7 +88,6 @@
     .about-features {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         margin: 3% 7%;
         >div:first-child {
