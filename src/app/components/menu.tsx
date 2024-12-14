@@ -15,8 +15,8 @@ export default function Menu() {
                 menu && (
                     <div style={{width:"100%", height:"100vh", background:"white", zIndex:"100", position:"fixed", left:"0", top:"0"}}>
                         <div style={{margin:"70px"}}>
-                            <div>
-                                <Link href={'/'} style={{textDecoration:"none"}}><div style={{}}>Avion</div></Link>
+                            <div style={{textAlign:"center",}}>
+                                <Link href={'/'} style={{textDecoration:"none"}}><div style={{fontSize:"32px"}}>Avion</div></Link>
                             </div>
                             <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                                 <div style={{fontWeight:"bolder", fontSize:"20px"}}onClick={handleMenu}>X</div>
