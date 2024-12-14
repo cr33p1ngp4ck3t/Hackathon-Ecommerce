@@ -34,7 +34,7 @@ export function Header() {
                                     <div className="hamburger-menu">
                                         <div className="hamburger-icon">
                                             <img src="/search.png" alt="" />
-                                            <img src="/menu.png" alt="Menu" />
+                                            <Menu />
                                         </div>
                                     </div>
                                 )
@@ -243,7 +243,7 @@ export function HeaderProduct() {
                     <div className="hamburger-menu">
                         <div className="hamburger-icon">
                             <img src="/search.png" alt="Search" />
-                            <img src="/menu.png" alt="Menu" />
+                            <Menu />
                         </div>
                     </div>
                 )}
