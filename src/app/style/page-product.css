@@ -65,13 +65,6 @@
     cursor: pointer;
 }
 
-.hamburger-menu {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
-}
-
 .hamburger-icon img {
     width: 24px;
     height: 24px;
@@ -85,13 +78,6 @@
     
     .header-icons img {
         cursor: pointer;
-    }
-
-    .hamburger-menu {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex: 1;
     }
     .hamburger-icon {
         display: flex;

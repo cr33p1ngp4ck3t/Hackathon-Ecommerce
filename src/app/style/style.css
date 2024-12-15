@@ -455,7 +455,7 @@
     }
 }
 
-@media (max-width:425px) {
+@media (max-width:426px) {
     .newsletter-container{ 
         display: flex;
         align-items: center;
