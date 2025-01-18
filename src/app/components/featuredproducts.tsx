@@ -6,7 +6,7 @@ export default function FeaturedProduct() {
         <div>
             <div className="products">
                 <div>
-                    <Product count={4}/>
+                    <Product count={3} />
                 </div>
             </div>
         </div>

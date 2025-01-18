@@ -1,7 +1,6 @@
-*{ 
+body{ 
     font-family: 'Clash Display', sans-serif;
     margin: 0;
-    color: #2A254B;
 }
 
 .header-container {
@@ -325,6 +324,9 @@
     color: #2A254B;
     font-size: 20px;
     font-weight: 400;
+    text-overflow: clip;
+    overflow: hidden;
+    text-wrap: wrap;
 }
 
 #product-price { 
@@ -386,7 +388,7 @@
     flex-wrap: wrap;
     height: 444px;
     width: 100%;
-    background: url(https://s3-alpha-sig.figma.com/img/27be/3038/bae4257d89397ead63485f276489b3fa?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=etmuG8rx3tuZ21TfV-kx5Xo5DfgRbiq-ajooCewZIKdMpH4rkP3S2XCgnVjjGslnpkPEsgwlkNX22MuIcwlolq64s5A4ZvP-J-CY7mD2zVnTwzvvwO2V6cNJmKt3dHIXfSqnu5JGsb7P7-7eVdhoXfb~85DfoVXN5hqwJyKvRjTfbIG7Ns7Ago2vkwGa7Ua9Lf5ZqOYLbskTlIRQ05dUIKmVxQPVIGaQc4ISOITmmEH1e-djsQI-6tX8hZ90Tyo4DqSjEt7HYjaBuUk~tDx7lMO~CLSvY-0Zj1Xmbh6j5PMkWCFOkA73eGXOF5mlLPYS~Dox5IU0oIsSRxQUmqbhjw__) no-repeat center center / cover;
+    background: url('/bottom.jpeg') no-repeat center center / cover;
     #newsletter-content {
         display: flex;
         flex-direction: column;
@@ -465,7 +467,7 @@
         width: 100%;
         text-align: start;
         padding: 20px;
-        background: url(https://s3-alpha-sig.figma.com/img/27be/3038/bae4257d89397ead63485f276489b3fa?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=etmuG8rx3tuZ21TfV-kx5Xo5DfgRbiq-ajooCewZIKdMpH4rkP3S2XCgnVjjGslnpkPEsgwlkNX22MuIcwlolq64s5A4ZvP-J-CY7mD2zVnTwzvvwO2V6cNJmKt3dHIXfSqnu5JGsb7P7-7eVdhoXfb~85DfoVXN5hqwJyKvRjTfbIG7Ns7Ago2vkwGa7Ua9Lf5ZqOYLbskTlIRQ05dUIKmVxQPVIGaQc4ISOITmmEH1e-djsQI-6tX8hZ90Tyo4DqSjEt7HYjaBuUk~tDx7lMO~CLSvY-0Zj1Xmbh6j5PMkWCFOkA73eGXOF5mlLPYS~Dox5IU0oIsSRxQUmqbhjw__) no-repeat center center / cover;
+        background: url('/bottom.jpeg') no-repeat center center / cover;
             #newsletter-content {
                 display: flex;
                 flex-direction: column;

@@ -1,5 +1,5 @@
 .products-page {
-    background: url(https://s3-alpha-sig.figma.com/img/488d/b74a/65d5ace2fbbe83a1a93107e30948dc52?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OSMomJnx9eJnirLa7FAd5KETHX8f-Z6hw5O9K9ZOnuhIJCvs1Ki5JVmtTb5a~xe1PnXFug5ncm3SWYBVR6Nld7zJW-l47darlQDCN6B3yfI6vfkmw0AOpJ9AT2-XcN3r7g9xcT-doTHIrU8he0jODGHwxOKvgn64OqXSnSkmaWV40BGzIU8l9qGeswbmR5bkWSgXQwQ9WYmU9xBQ3fALwMvNRWd6gAve6pUXy9mLqYmLvjpd6gczo9J44cgZqcC3dwmAx56trlAg9GzZuwiJ1b5ES3LeGMPJzPryDXKLsp1qHq0lbJ3Os12ogP61ffoDcRK6htjfDNJcBHf7K5Gtfg__) no-repeat center center / cover;
+    background: url('/product-hero.jpeg') no-repeat center center / cover;
     height: 209px;
     display: flex;
     > div {

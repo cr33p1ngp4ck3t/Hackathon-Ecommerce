@@ -52,7 +52,7 @@
         display: flex;
         flex: 1;
         min-width: 300px;
-        background: url(https://s3-alpha-sig.figma.com/img/75f9/88a6/9e782fdeef5f60eca5a47456ecfd4df1?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ig1ZinG65CACx2Yefd0ZJ4yIEoeHnd87VIh2CDuJivZLtwijZU2WU-68hDY3DVHk59cKFuy6rh3h7jSTfME4VnBKs62EmT8-Bgg~N~ZJm6za9nPV2GaUmrrScjh7Stodv-HpnJ3ToQg45eFQnCX6J00a4~TqQeZzPrvEc6E2tpH7vxKPU8z7fdP0uLhbfLE2NCGVxbhMkwMf0ZtTzkT3nPFNi279EVwaSrEbIvIsysfoeM3t0y0W5cQG3R600qgzFo3nU62jyvkHKlg8~WaU6PHyCqSAwQfJgx1~6-32jRoF5I16GN7D3Mx5lI-WoMvHmqGHWDg~q6aaTG-pn3mIkw__) no-repeat center center / cover;
+        background: url('/about.jpeg') no-repeat center center / cover;
         object-fit: cover;
         object-position: center;
         min-height: 425px;

@@ -20,12 +20,9 @@ export default function Newsletter () {
                     {
                         show && (
                             <div id="c">
-                                <div id="">
-                                    <img src="/checkmark-filled.png" alt="" />
-                                    <div>Exclusive offers</div>
-                                </div>
-                                <div id=""><img src="/checkmark-filled.png" alt="" /><div>Free events</div></div>
-                                <div id=""><img src="/checkmark-filled.png" alt="" /><div>Large discounts</div></div>
+                                <div><img src="/checkmark-filled.png" alt="" /><div>Exclusive offers</div></div>
+                                <div><img src="/checkmark-filled.png" alt="" /><div>Free events</div></div>
+                                <div><img src="/checkmark-filled.png" alt="" /><div>Large discounts</div></div>
                             </div>
                         )
                     }

@@ -87,7 +87,7 @@ export default function ProductPage() {
                 <br />
                 <br />
                 <div>
-                    <Product />
+                    <Product count={100} />
                 </div>
                 <br />
                 <br />
