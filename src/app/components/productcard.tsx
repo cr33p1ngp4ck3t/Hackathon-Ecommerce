@@ -1,4 +1,3 @@
-// @typescript-eslint/no-unused-expressions
 "use client"
 import Link from 'next/link';
 import "../style/style.css"
@@ -65,17 +64,17 @@ export function ProductCard({ count }: {count : number}) {
 export default function Product({ count }: {count : number}) { 
 
     const [increase, setIncrease] = useState(0);
-
-  const handleIncrease = () => {
-    setIncrease((prev) => prev + 4);
-    if (increase < 12) {
-        popup
-        }
-        else alert("Max number of Posts Reached");
-  };
     const popup = () => {
         alert("loading");
     };
+
+    const handleIncrease = () => {
+        setIncrease((prev) => prev + 4);
+        if (increase < 12) {
+        popup()
+        }
+        else alert("Max number of Posts Reached");
+  };
 
     return(
         <div style={{display:"flex", flexDirection:"column", gap:"20px", justifyContent:"center"}}>
