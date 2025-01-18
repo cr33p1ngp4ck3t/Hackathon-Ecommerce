@@ -1,3 +1,4 @@
+// @typescript-eslint/no-unused-expressions
 "use client"
 import Link from 'next/link';
 import "../style/style.css"
@@ -16,10 +17,10 @@ export function ProductCard({ count }: {count : number}) {
             "image_url": image.asset -> url
         }`
     
-        async function fetchProducts() {
-            const result = await client.fetch<SanityDocument[]>(PRODUCT_QUERY);
-            return result;
-          }
+    async function fetchProducts() {
+        const result = await client.fetch<SanityDocument[]>(PRODUCT_QUERY);
+        return result;
+        }
     const [products, setProducts] = useState<SanityDocument[]>([]);
 
     useEffect(() => {

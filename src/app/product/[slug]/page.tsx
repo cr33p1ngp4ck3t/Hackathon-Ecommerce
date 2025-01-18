@@ -6,7 +6,7 @@ import '../../style/page-product.css'
 import '../../style/style.css'
 import { client } from '@/sanity/lib/client'
 import { groq } from 'next-sanity'
-
+import Image from 'next/image'
 
 export const dynamic = "force-dynamic"
 
@@ -35,7 +35,7 @@ const ProductPage = async ({ params }: PageProps) => {
             <HeaderProduct />
             <div className="product-hero" >
                 <div className="container-1">
-                    <img src={product.image} alt={product.name} />
+                    <Image src={product.image} alt={product.name} width={721} height={759} />
                 </div>
                 <div className="container-2">
                     <div className="container-desc">
