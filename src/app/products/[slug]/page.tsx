@@ -21,9 +21,9 @@ async function getPost(slug: string) {
 }
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
 
 const ProductPage = async ({ params }: PageProps) => {
