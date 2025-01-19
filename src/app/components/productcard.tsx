@@ -16,19 +16,20 @@ export function ProductCard({ count }: {count : number}) {
             "image_url": image.asset -> url
         }`
     
-    async function fetchProducts() {
-        const result = await client.fetch<SanityDocument[]>(PRODUCT_QUERY);
-        return result;
-        }
     const [products, setProducts] = useState<SanityDocument[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const result = await fetchProducts();
+        const fetchProducts = async () => {
+          try {
+            const result = await client.fetch<SanityDocument[]>(PRODUCT_QUERY);
             setProducts(result);
+          } catch (err) {
+            console.error("Error fetching products:", err);
+          }
         };
-        fetchData();
-    }, []);
+    
+        fetchProducts();
+      }, [count]);
     
 
 
@@ -61,11 +62,15 @@ export function ProductCard({ count }: {count : number}) {
     )
 } 
 
-export default function Product({ count }: {count : number}) { 
+
+
+export default function Product({ }: { count: number }) { 
+
+    const count = 11;
 
     const [increase, setIncrease] = useState(0);
     const popup = () => {
-        alert("loading");
+        alert("Fetching ...");
     };
 
     const handleIncrease = () => {
