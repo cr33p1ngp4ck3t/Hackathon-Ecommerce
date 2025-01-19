@@ -64,9 +64,7 @@ export function ProductCard({ count }: {count : number}) {
 
 
 
-export default function Product({ }: { count: number }) { 
-
-    const count = 11;
+export default function Product({ count }: { count: number }) { 
 
     const [increase, setIncrease] = useState(0);
     const popup = () => {
