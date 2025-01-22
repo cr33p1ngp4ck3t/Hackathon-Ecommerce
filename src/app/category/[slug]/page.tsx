@@ -14,7 +14,7 @@ export default async function Category({ params }: PageProps ) {
             <div>
                 <div>
                     <div className='flex h-[200px] mb-8 ' style={{ background: "url('/product-hero.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}>
-                        <div className="flex text-white items-end m-[50px] text-4xl   ">Products in {await params.slug}</div>
+                        <div className="flex text-white items-end m-[50px] text-4xl   ">Products in {(await params).slug}</div>
                     </div>
                 </div>
             </div>
@@ -46,9 +46,9 @@ async function getPosts(slug: string) {
   }
   
   interface PageProps {
-    params: {
+    params: Promise<{
       slug: string;
-    };
+    }>;
   }
 
   export async function ProductCard({ params }: PageProps) { 
