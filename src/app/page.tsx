@@ -1,9 +1,9 @@
-import FeaturedProduct from "./components/featuredproducts";
-import Features from "./components/features";
-import Hero from "./components/hero";
-import { Footer, Header } from "./components/nav";
-import Newsletter from "./components/newsletter";
-import Proof from "./components/proof";
+import FeaturedProduct from "./components/ui/product/featuredproducts";
+import Features from "./components/ui/misc/features";
+import Hero from "./components/ui/misc/hero";
+import { Footer, Header } from "./components/ui/misc/nav";
+import Newsletter from "./components/ui/misc/newsletter";
+import Proof from "./components/ui/misc/proof";
 
 
 export default function HomePage() {

@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import { AboutHeader, FooterProduct } from "../components/nav"
-import "../style/page-product.css"
-import "../style/page-about.css"
+import { AboutHeader, FooterProduct } from "../components/ui/misc/nav"
+import "../styles/page-product.css"
+import "../styles/page-about.css"
 import Link from "next/link"
-import Features from "../components/features"
-import Proof from "../components/proof"
-import Newsletter from "../components/newsletter"
+import Features from "../components/ui/misc/features"
+import Proof from "../components/ui/misc/proof"
+import Newsletter from "../components/ui/misc/newsletter"
 
 export default function AboutPage() {
     return (

@@ -13,7 +13,7 @@ export const writeClient = createClient({
   projectId,
   dataset,
   apiVersion,
-  token: process.env.SANITY_TOKEN,
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
   useCdn: false,
 })
 

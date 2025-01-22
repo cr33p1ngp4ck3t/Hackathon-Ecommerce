@@ -8,18 +8,38 @@ export default defineType({
     defineField({
       name: 'orderId',
       title: 'Order ID',
-      type: 'string'
+      type: 'string',
     }),
     defineField({
-      name: 'userId',
-      title: 'User ID',
-      type: 'string'
+      name: "customer",
+      title: "Customer",
+      type: "reference",
+      to: [{ type: "customer" }],
     }),
     defineField({
       name: 'items',
       title: 'Items',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'product' }] }],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'product',
+              title: 'Product',
+              type: 'reference',
+              to: [{ type: 'product' }],
+            }),
+            defineField({
+              name: 'quantity',
+              title: 'Quantity',
+              type: 'number',
+              initialValue: 1,
+              validation: (Rule) => Rule.min(1),
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'status',
@@ -28,10 +48,10 @@ export default defineType({
       options: {
         list: [
           { title: 'Pending', value: 'pending' },
-          { title: 'Validation', value: 'Validation' },
+          { title: 'Validation', value: 'validation' },
           { title: 'Successful/Delivered', value: 'delivered' },
-        ] 
-      }
+        ],
+      },
     }),
-  ]
+  ],
 });

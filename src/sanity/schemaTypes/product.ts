@@ -27,12 +27,6 @@ export default defineType({
       validation: (Rule) => Rule.required()
     }),
     defineField({
-      name: 'stock',
-      title: 'Stock',
-      type: 'number',
-      validation: (Rule) => Rule.required()
-    }),
-    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
@@ -72,6 +66,7 @@ export default defineType({
       of: [{ type: 'string' }],
       description: 'List of key features of the product',
     }),
+    
     defineField({
       name: "tags",
       type: "array",
