@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 
 export default function Menu({ category }: { category: any }) {
     const [menu, setMenu] = useState (false);

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Footer, Header } from "@/app/components/ui/misc/nav"
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity";

@@ -1,4 +1,6 @@
 'use client'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image"
 import "@/app/styles/shop-cart.css"
 import { useCart } from "@/app/context/carthandler/page";

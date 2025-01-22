@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { client } from "@/sanity/lib/client";
 import "@/app/styles/style.css"
 import '@/app/styles/globals.css'

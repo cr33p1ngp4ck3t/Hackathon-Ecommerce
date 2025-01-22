@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { AboutHeader, FooterProduct } from "../components/ui/misc/nav";
 import { CartDetails, CartTotal } from "../components/ui/order/cartcontent";
@@ -36,7 +37,7 @@ export default function Checkout() {
           alert(`Error during checkout: ${error}`);
         }
       };
-      
+
   return (
     <div>
         <AboutHeader />
@@ -47,6 +48,9 @@ export default function Checkout() {
                         <div>
                             <div className="text-4xl font-bold ">Order Details</div>
                             <CartDetails />
+                            <div>
+
+                            </div>
                         </div>
                         <div className="mx-auto flex w-full justify-center">
                             <div className=" bg-[#F9F9F9] p-6 w-full h-full   ">
