@@ -3,7 +3,34 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
 import Menu from "./menu";
+import Image from "next/image";
 import { client } from "@/sanity/lib/client";
+
+const searchBar = (
+<div
+  className="p-2 overflow-hidden w-[40px] h-[40px] hover:w-[270px] bg-[#F9F9F9] shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-300"
+>
+  <div className="flex items-center justify-center fill-black">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      id="Isolation_Mode"
+      data-name="Isolation Mode"
+      viewBox="0 0 24 24"
+      width="22"
+      height="22"
+    >
+      <path
+        d="M18.9,16.776A10.539,10.539,0,1,0,16.776,18.9l5.1,5.1L24,21.88ZM10.5,18A7.5,7.5,0,1,1,18,10.5,7.507,7.507,0,0,1,10.5,18Z"
+      ></path>
+    </svg>
+  </div>
+  <input
+    type="text"
+    className="outline-none text-[20px] bg-[#F9F9F9] w-full font-normal px-4"
+  />
+</div>
+
+)
 
 const HEADER_QUERY = `
     *[_type == 'category' && defined(slug.current)]  {
@@ -39,14 +66,15 @@ export function Header() {
                             {
                                 !isMobile ? (
                                     <div style={{display:"flex", gap:"20px", alignItems:"center", justifyContent:"center",}}>
-                                        <img src="/search.png" alt="" />
-                                        <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
-                                        <img src="/user.png" alt="" />
+                                        {searchBar}
+                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                        <Image loading="lazy" src="/user.svg" alt="" width={24} height={24}/>
                                     </div>
                                 ): (
                                     <div className="hamburger-menu">
-                                        <div className="hamburger-icon">
-                                            <img src="/search.png" alt="" />
+                                        <div className="hamburger-icon flex items-center">
+                                            {searchBar}
+                                            <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
                                             <Menu category={category} />
                                         </div>
                                     </div>
@@ -142,13 +170,13 @@ export function Footer () {
                     <div className="footer-links">
                         <div style={{fontSize:"14px", alignContent:"center"}}>Copyright 2022 Avion LTD</div>
                         <div>
-                            <div style={{width:"40%", display:'flex', gap:"20px", cursor:"pointer"}}>
-                                <img src="/Logo-linkedin.png" alt="" />
-                                <img src="/Logo-facebook.png" alt="" />
-                                <img src="/Logo-instagram.png" alt="" />
-                                <img src="/Logo-skype.png" alt="" />
-                                <img src="/Logo-twitter.png" alt="" />
-                                <img src="/Logo-pinterest.png" alt="" />
+                            <div style={{ display:'flex', gap:"20px", cursor:"pointer"}}>
+                                <Image loading="lazy" src="/Logo-linkedin.png" alt="" width={24} height={24}/>
+                                <Image loading="lazy" src="/Logo-facebook.png" alt="" width={24} height={24}/>
+                                <Image loading="lazy" src="/Logo-instagram.png" alt="" width={24} height={24}/>
+                                <Image loading="lazy" src="/Logo-skype.png" alt="" width={24} height={24}/>
+                                <Image loading="lazy" src="/Logo-twitter.png" alt="" width={24} height={24}/>
+                                <Image loading="lazy" src="/Logo-pinterest.png" alt="" width={24} height={24}/>
                             </div>
                         </div>
                     </div>
@@ -223,11 +251,11 @@ export function HeaderProduct() {
             {show && (
                 <div className="promo-bar">
                     <div className="promo-content">
-                        <img src="/Deliveryx1.png" alt="Delivery" className="promo-image"/>
+                        <Image loading="lazy" src="/Deliveryx1.png" alt="Delivery" className="promo-image" width={24} height={24}/>
                         <div className="promo-text">Free delivery on all orders over £50 with code easter checkout</div>
                     </div>
                     <div className="close-icon" onClick={Close}>
-                        <img src="/Close.png" alt="Close" />
+                        <Image loading="lazy" src="/Close.png" alt="Close" width={24} height={24}/>
                     </div>
                 </div>
             )}
@@ -248,17 +276,18 @@ export function HeaderProduct() {
                             </div>
                         </div>
                         <div className="header-icons">
-                            <img src="/search.png" alt="Search" />
-                            <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
-                            <img src="/user.png" alt="User" />
+                            {searchBar}
+                            <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                            <Image loading="lazy" src="/user.svg" alt="User" width={24} height={24}/>
                         </div>
                     </>
                 ) : 
                 (
                     <div className="hamburger-menu">
-                        <div className="hamburger-icon">
-                            <img src="/search.png" alt="Search" />
-                            <Menu category={category} />
+                        <div className="hamburger-icon flex items-center">
+                        {searchBar}
+                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                        <Menu category={category} />
                         </div>
                     </div>
                 )}
@@ -309,13 +338,13 @@ export function FooterProduct() {
                             </div>
                             <div className="product-footer-text">
                                 <div id="t">
-                                    <div style={{width:"40%", display:'flex', gap:"30px", cursor:"pointer"}}>
-                                        <img src="/Logo-linkedin.png" alt="" />
-                                        <img src="/Logo-facebook.png" alt="" />
-                                        <img src="/Logo-instagram.png" alt="" />
-                                        <img src="/Logo-skype.png" alt="" />
-                                        <img src="/Logo-twitter.png" alt="" />
-                                        <img src="/Logo-pinterest.png" alt="" />
+                                    <div style={{display:'flex', gap:"20px", cursor:"pointer"}}>
+                                        <Image loading="lazy" src="/Logo-linkedin.png" alt=""  width={24} height={24}/>
+                                        <Image loading="lazy" src="/Logo-facebook.png" alt=""  width={24} height={24}/>
+                                        <Image loading="lazy" src="/Logo-instagram.png" alt=""  width={24} height={24}/>
+                                        <Image loading="lazy" src="/Logo-skype.png" alt=""  width={24} height={24}/>
+                                        <Image loading="lazy" src="/Logo-twitter.png" alt=""  width={24} height={24}/>
+                                        <Image loading="lazy" src="/Logo-pinterest.png" alt="" width={24} height={24} />
                                     </div>
                                 </div>
                                 <div id="t">
@@ -362,13 +391,13 @@ export function FooterProduct() {
                             </div>
                             <div style={{padding:"10px 0"}}>
                                 <div style={{fontSize:"16px", padding:"15px 0 ", color:"white"}}>Social Links</div>
-                                <div style={{width:"40%", display:'grid', gridTemplateColumns:"repeat(3, 1fr)", gap:"30px", cursor:"pointer"}}>
-                                    <img src="/Logo-linkedin.png" alt="" />
-                                    <img src="/Logo-facebook.png" alt="" />
-                                    <img src="/Logo-instagram.png" alt="" />
-                                    <img src="/Logo-skype.png" alt="" />
-                                    <img src="/Logo-twitter.png" alt="" />
-                                    <img src="/Logo-pinterest.png" alt="" />
+                                <div style={{ display:'grid', gridTemplateColumns:"repeat(3, 1fr)", gap:"20px", cursor:"pointer"}}>
+                                    <Image loading="lazy" width={24} height={24} src="/Logo-linkedin.png" alt="" />
+                                    <Image loading="lazy" width={24} height={24} src="/Logo-facebook.png" alt="" />
+                                    <Image loading="lazy" width={24} height={24} src="/Logo-instagram.png" alt="" />
+                                    <Image loading="lazy" width={24} height={24} src="/Logo-skype.png" alt="" />
+                                    <Image loading="lazy" width={24} height={24} src="/Logo-twitter.png" alt="" />
+                                    <Image loading="lazy" width={24} height={24} src="/Logo-pinterest.png" alt="" />
                                 </div>
                             </div>
                             <div>
@@ -428,11 +457,11 @@ export function AboutHeader() {
                 {show && (
                     <div className="promo-bar">
                         <div className="promo-content">
-                            <img src="/Deliveryx1.png" alt="Delivery" className="promo-image"/>
+                            <Image loading="lazy" src="/Deliveryx1.png" alt="Delivery" className="promo-image" width={24} height={24}/>
                             <div className="promo-text">Free delivery on all orders over £50 with code easter checkout</div>
                         </div>
                         <div className="close-icon" onClick={Close}>
-                            <img src="/Close.png" alt="Close" />
+                            <Image loading="lazy" src="/Close.png" alt="Close" width={24} height={24} />
                         </div>
                     </div>
                 )}
@@ -448,16 +477,19 @@ export function AboutHeader() {
                                         <div>Contact</div>
                                             <div>Blog</div>
                                         </div>
-                                        <img src="/search.png" alt="Search" />
-                                        <Link href={'/cart'}><img src="/shopcart.png" alt="Cart" /></Link>
-                                        <img src="/user.png" alt="User" />
+                                        <div>
+                                        {/* {searchBar} */}
+                                        </div>
+                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                        <Image loading="lazy" src="/user.svg" alt="User" width={24} height={24}/>
                                     </div>
                                     
                                 ): (
                                     <div className="hamburger-menu">
-                                        <div className="hamburger-icon">
-                                            <img src="/search.png" alt="Search" />
-                                            <Menu category={category} />
+                                        <div className="hamburger-icon flex items-center">
+                                        {searchBar}
+                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                        <Menu category={category} />
                                         </div>
                                     </div>
                                 

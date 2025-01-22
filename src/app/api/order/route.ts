@@ -1,6 +1,7 @@
 import { writeClient } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { NextResponse } from "next/server";
+import { v4 as uuidv4 } from 'uuid'
 
 export async function POST(request: Request) {
   try {
@@ -40,15 +41,18 @@ export async function POST(request: Request) {
         .dec({ quantity })
         .commit();
 
-      updatedProducts.push({
-        _type: "orderItem",
+        
+        updatedProducts.push({
+        _key: uuidv4(),
         product: { _type: "reference", _ref: productId },
         quantity,
       });
     }
+    const orderId = uuidv4();
 
     const order = await writeClient.create({
       _type: "order",
+      orderId,
       items: updatedProducts,
       status: "pending",
     });

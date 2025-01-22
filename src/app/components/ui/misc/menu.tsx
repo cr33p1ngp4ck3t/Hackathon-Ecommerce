@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
@@ -12,7 +12,7 @@ export default function Menu({ category }: { category: any }) {
 
     return (
         <div>
-            <img src="/menu.png" alt="Menu" onClick={handleMenu}/>
+            <Image src={'/menu.svg'} width={30} height={30} alt="Menu" onClick={handleMenu}/>
             {
                 menu && (
                     <div style={{width:"100%", height:"100vh", background:"white", zIndex:"100", position:"fixed", left:"0", top:"0"}}>
@@ -22,7 +22,7 @@ export default function Menu({ category }: { category: any }) {
                             </div>
                             <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                                 <div style={{fontWeight:"bolder", fontSize:"20px"}}onClick={handleMenu}>X</div>
-                                <img src="/user.png" alt="User"/>
+                                <img src="/user.svg" alt="User"/>
                             </div>
                             <div style={{margin:" 30px 0"}}>
                                 <div style={{display:"flex", flexDirection:'column', gap:"20px", fontSize:"24px", cursor:"pointer"}}>

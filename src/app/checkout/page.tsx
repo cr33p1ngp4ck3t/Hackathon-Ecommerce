@@ -29,6 +29,9 @@ export default function Checkout() {
     
           if (response.ok) {
             alert("Order placed successfully!");
+            localStorage.removeItem("cart");
+            window.location.href = "/";
+
           } else {
             const errorData = await response.json();
             alert(`Failed to place order: ${errorData.message}`);
@@ -44,10 +47,10 @@ export default function Checkout() {
         <div>
             <div className="mx-6 my-6">
                 <div className="max-w-[1200px] mx-auto">
-                    <div className="grid grid-cols-[1fr_0.5fr] gap-5  ">
+                    <div className="grid flex-col sm:grid-cols-[1fr_0.5fr] gap-5  ">
                         <div>
                             <div className="text-4xl font-bold ">Order Details</div>
-                            <CartDetails />
+                            <CartDetails key={cartItems.map((item: any) => item.product._id)} />
                             <div>
 
                             </div>

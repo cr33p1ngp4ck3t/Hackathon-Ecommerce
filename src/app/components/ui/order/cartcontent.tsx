@@ -17,17 +17,17 @@ export function CartContent( order? : { order: any }) {
                     <div className="cart-title">Your shopping cart</div>
                     <div className="cart-items"> 
                         <div className="cart-header">
-                            <div className="cart-header-item text-2xl">Product</div>
-                            <div className="cart-header-item text-2xl">Quantity</div>
-                            <div className="cart-header-item text-2xl">Total</div>
-                            <div className="cart-header-item text-2xl"></div>
+                            <div className="cart-header-item md:text-2xl sm:text-lg">Product</div>
+                            <div className="cart-header-item md:text-2xl sm:text-lg">Quantity</div>
+                            <div className="cart-header-item md:text-2xl sm:text-lg">Total</div>
+                            <div className="cart-header-item md:text-2xl sm:text-lg"></div>
                         </div>
                         <CartDetails />
                     </div>
-                    <div style={{display:"flex", justifyContent:"flex-end", borderTop:"1px solid lightgray", margin:"10px 0"}}>
-                        <div style={{margin:"10px 0", display:"flex", flexDirection:"column", gap:"10px", alignItems:"flex-end"}}>
+                    <div className="flex justify-end border-t border-gray-400 my-[10px] ">
+                        <div className="my-[10px] flex flex-col gap-[10px] items-end  ">
                             <CartTotal />
-                            <div style={{color:"#4E4D93", fontSize:"14px"}}>Taxes and shipping are calculated at checkout</div>
+                            <div className="text-[#4E4D93] text-sm  ">Taxes and shipping are calculated at checkout</div>
                             <Link href='/checkout'><button id="input-checkout">Go To Checkout</button></Link>
                         </div>
                     </div>
@@ -38,37 +38,41 @@ export function CartContent( order? : { order: any }) {
 }
 
 
-export const CartDetails= () => {
+export const CartDetails= ( key? : any ) => {
     const { cartItems, updateQuantity, removeItem } = useCart()
 
     const cartItemsList = useMemo(() => {
         return cartItems.map((item: any) => (
             <div className="cart-item" key={item.product._id}>
-                <div className="cart-item-details">
+                <div className="flex flex-row gap-2 items-center">
                     <Image
-                        className="cart-item-image"
+                        className="object-cover object-center bg-no-repeat w-[50px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[120px] lg:w-[140px] lg:h-[170px] "
                         src={item.product?.image}
                         alt={item.product.name}
-                        width={100}
-                        height={100}
+                        width={1000}
+                        height={1000}
+                        loading="lazy"
                     />
                     <div className="cart-item-info">
-                        <div className="item-name">{item.product.name}</div>
-                        <div className="item-price">£{item.product.price}</div>
+                        <div className=" md:text-xl sm:text-sm lg:text-2xl">{item.product.name}</div>
+                        <div className="flex-1 md:text-xl sm:text-sm lg:text-2xl">£{item.product.price}</div>
                     </div>
                 </div>
                 <div className="items-center flex flex-1">
                     <input
                         type="number"
-                        min="1"
+                        min='1'
+                        required={true}
                         value={item.quantity}
-                        className="flex text-end flex-1 bg-inherit"
-                        onChange={(e) =>
-                            updateQuantity(
-                                item.product._id,
-                                parseInt(e.target.value, 10)
-                            )
-                        }
+                        className="flex text-start md:text-center xl:text-end w-full bg-inherit"
+                        onChange={(e) => {
+                            const value = parseInt(e.target.value, 10);
+                            if (isNaN(value) || value < 1) {
+                                updateQuantity(item.product._id, 1);
+                            } else {
+                                updateQuantity(item.product._id, value);
+                            }
+                        }}
                     />
                 </div>
                 <div className="cart-item-total w-full justify-end items-center flex">
