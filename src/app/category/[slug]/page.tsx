@@ -6,7 +6,47 @@ import Link from "next/link";
 import Image from "next/image";
 import "../../styles/globals.css"
 
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+async function getPosts(slug: string) {
+        const CAT_Q = groq`
+          *[_type == "product" && category->slug.current == $slug] {
+            _id,
+            name,
+            price,
+            slug,
+            "image_url": image.asset->url
+          }
+        `;
+        try {
+            const products = await client.fetch(CAT_Q, { slug });
+            return products;
+          } catch (error) {
+            console.error("Failed to fetch products:", error);
+            return [];
+          }
+      }
+      
 export default async function Category({ params }: PageProps ) {
+    
+    const { slug } = params;
+    const products = await getPosts(slug);
+
+    if (!products || products.length === 0) {
+        return (
+          <div>
+            <Header />
+            <div className="text-center mt-10">
+              <h1>No products found for the category "{slug}".</h1>
+            </div>
+            <Footer />
+          </div>
+        );
+      }
     
     return ( 
         <div>
@@ -14,49 +54,11 @@ export default async function Category({ params }: PageProps ) {
             <div>
                 <div>
                     <div className='flex h-[200px] mb-8 ' style={{ background: "url('/product-hero.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}>
-                        <div className="flex text-white items-end m-[50px] text-4xl   ">Products in {(await params).slug}</div>
+                        <div className="flex text-white items-end m-[50px] text-4xl   ">Products in {slug}</div>
                     </div>
                 </div>
             </div>
-            <ProductCard params={params} />
-            <div className="flex justify-center mt-10">
-                <Link href="/products">
-                    <button className="bg-[#F9F9F9] text-black px-5 py-7 rounded-md">See all products</button>
-                </Link>
-            </div>
-            <div className="mt-10">
-                <Footer />
-            </div>
-        </div>
-    )
-}
-
-async function getPosts(slug: string) {
-    const CAT_Q = groq`
-      *[_type == "product" && category->slug.current == $slug] {
-        _id,
-        name,
-        price,
-        slug,
-        "image_url": image.asset->url
-      }
-    `;
-    const products = await client.fetch(CAT_Q, { slug });
-    return products;
-  }
-  
-  interface PageProps {
-    params: Promise<{
-      slug: string;
-    }>;
-  }
-
-  export async function ProductCard({ params }: PageProps) { 
-    const { slug } = await params;
-    const products = await getPosts(slug);
-       
-    return ( 
-        <><div id="productlist">
+            <div id="productlist">
             {
                 products.map((products: any) => (
                     <div key={products._id}>
@@ -80,6 +82,14 @@ async function getPosts(slug: string) {
                 ))
             }
         </div>
-    </>
+            <div className="flex justify-center mt-10">
+                <Link href="/products">
+                    <button className="bg-[#F9F9F9] text-black px-5 py-7 rounded-md">See all products</button>
+                </Link>
+            </div>
+            <div className="mt-10">
+                <Footer />
+            </div>
+        </div>
     )
-} 
+}
