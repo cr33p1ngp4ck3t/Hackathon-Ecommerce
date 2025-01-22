@@ -1,5 +1,8 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
 import "./styles/style.css";
+import { CartProvider } from "./context/carthandler/page";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,14 +16,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet" />
-        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet"></link>
-      </head>
-      <body>
-        {children}
-      </body>
-    </html>
+    <CartProvider>
+      <html lang="en">
+        <head>
+          <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet" />
+          <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet"></link>
+        </head>
+        <body>
+          <SpeedInsights />
+          <Analytics />
+          {children}
+        </body>
+      </html>
+    </CartProvider>
   );
 }

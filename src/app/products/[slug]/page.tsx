@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: PageProps) {
         <div>
             <HeaderProduct />
             <ProductDetails product={product} />
-            <div className="related-products">
+            <div className="related-products mt-12 mx-6">
                 <div className="related-title">You Might Also Like</div>
                 <FeaturedProduct />
             </div>

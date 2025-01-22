@@ -7,7 +7,7 @@ interface AddToCartButtonProps {
   quantity: number;
 }
 
-const AddToCartButton: React.FC<AddToCartButtonProps> = ({ productId, quantity }) => {
+const Checkout: React.FC<AddToCartButtonProps> = ({ productId, quantity }) => {
   const handleCheckout = async () => {
     try {
       const response = await fetch("/api/order", {
@@ -32,10 +32,13 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ productId, quantity }
   };
 
   return (
-    <button className="cart-button" onClick={handleCheckout}>
-      Checkout
-    </button>
+    // <button className="cart-button" onClick={handleCheckout}>
+    //   Checkout
+    // </button>
+      <div className="flex justify-end ">
+        <button className="bg-[#2a254b] text-white py-4 px-10 text-xl " onClick={handleCheckout}>Proceed</button>
+      </div>
   );
 };
 
-export default AddToCartButton;
+export default Checkout;
