@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image"
 import "@/app/styles/shop-cart.css"
-import { useCart } from "@/app/context/carthandler/page";
+import { useCart } from "@/context/carthandler/page";
 import Link  from "next/link";
 import { useMemo } from "react";
 

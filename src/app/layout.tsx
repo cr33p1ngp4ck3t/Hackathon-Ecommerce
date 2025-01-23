@@ -2,7 +2,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
 import "./styles/style.css";
-import { CartProvider } from "./context/carthandler/page";
+import { CartProvider } from "@/context/carthandler/page";
 
 export const metadata: Metadata = {
   title: "Create Next App",

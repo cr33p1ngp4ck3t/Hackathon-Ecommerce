@@ -6,7 +6,7 @@ import "../styles/page-product.css"
 import "../styles/page-about.css"
 import "@/app/styles/shop-cart.css"
 import "@/app/styles/globals.css"
-import { useCart } from "../context/carthandler/page";
+import { useCart } from "../../context/carthandler/page";
 
 export default function Checkout() {
     const { cartItems } = useCart()
