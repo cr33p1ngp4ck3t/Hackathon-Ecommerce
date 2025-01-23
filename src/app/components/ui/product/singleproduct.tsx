@@ -10,7 +10,7 @@ export default function ProductDetails({ product }: { product: any }) {
     return (
         <div className="product-hero">
             <div className="container-1">
-                <Image src={product.image} alt={product.name} width={721} height={759} />
+                <Image src={product.image} alt={product.name} width={721} height={759} loading="lazy" />
             </div>
             <div className="container-2">
                 <div className="container-desc">

@@ -12,7 +12,7 @@ export default function Menu({ category }: { category: any }) {
 
     return (
         <div>
-            <Image src={'/menu.svg'} width={30} height={30} alt="Menu" onClick={handleMenu}/>
+            <Image src={'/menu.svg'} width={30} height={30} alt="Menu" onClick={handleMenu} loading="lazy"/>
             {
                 menu && (
                     <div style={{width:"100%", height:"100vh", background:"white", zIndex:"100", position:"fixed", left:"0", top:"0"}}>
@@ -22,7 +22,7 @@ export default function Menu({ category }: { category: any }) {
                             </div>
                             <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                                 <div style={{fontWeight:"bolder", fontSize:"20px"}}onClick={handleMenu}>X</div>
-                                <img src="/user.svg" alt="User"/>
+                                <Image src="/user.svg" alt="User" width={25} height={25} loading="lazy" />
                             </div>
                             <div style={{margin:" 30px 0"}}>
                                 <div style={{display:"flex", flexDirection:'column', gap:"20px", fontSize:"24px", cursor:"pointer"}}>

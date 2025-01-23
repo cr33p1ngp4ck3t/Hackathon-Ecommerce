@@ -41,7 +41,7 @@ export default async function Category({ params }: PageProps ) {
           <div>
             <Header />
             <div className="text-center mt-10">
-              <h1>No products found for the category "{slug}".</h1>
+              <h1>No products found for the category {slug}.</h1>
             </div>
             <Footer />
           </div>
@@ -70,7 +70,7 @@ export default async function Category({ params }: PageProps ) {
                                     width={305}
                                     height={375}
                                     className='object-center object-cover bg-no-repeat'
-                                    priority
+                                    loading="lazy"
                                 />
                                 <div id="product-desc">
                                     <div id="product-name">{products.name}</div>

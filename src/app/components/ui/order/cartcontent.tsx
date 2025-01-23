@@ -49,8 +49,8 @@ export const CartDetails= ( key? : any ) => {
                         className="object-cover object-center bg-no-repeat w-[50px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[120px] lg:w-[140px] lg:h-[170px] "
                         src={item.product?.image}
                         alt={item.product.name}
-                        width={1000}
-                        height={1000}
+                        width={200}
+                        height={200}
                         loading="lazy"
                     />
                     <div className="cart-item-info">
@@ -79,7 +79,7 @@ export const CartDetails= ( key? : any ) => {
                     £{(item.product.price * item.quantity).toFixed(2)}
                 </div>
                 <button className="flex-1 justify-end items-center flex border-none bg-inherit cursor-default">
-                    <Image src={'trash.svg'} alt="" width={30} height={30} onClick={() => removeItem(item.product._id)} className="cursor-pointer" />
+                    <Image src={'trash.svg'} alt="" width={30} height={30} onClick={() => removeItem(item.product._id)} className="cursor-pointer" loading="lazy" />
                 </button>
             </div>
         ));
