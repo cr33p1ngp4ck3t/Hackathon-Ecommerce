@@ -1,9 +1,9 @@
 "use client"
-/* eslint-disable @next/next/no-img-element */
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import '@/app/styles/style.css'
 import '@/app/styles/page-product.css'
+import Image from "next/image"
 
 export default function Newsletter () {
     const pathname = usePathname()
@@ -25,9 +25,9 @@ export default function Newsletter () {
                     {
                         show && (
                             <div id="c">
-                                <div><img src="/checkmark-filled.png" alt="" /><div>Exclusive offers</div></div>
-                                <div><img src="/checkmark-filled.png" alt="" /><div>Free events</div></div>
-                                <div><img src="/checkmark-filled.png" alt="" /><div>Large discounts</div></div>
+                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} /><div>Exclusive offers</div></div>
+                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} /><div>Free events</div></div>
+                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} /><div>Large discounts</div></div>
                             </div>
                         )
                     }

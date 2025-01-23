@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { AboutHeader, FooterProduct } from "../components/ui/misc/nav"
 import "../styles/page-product.css"
 import "../styles/page-about.css"

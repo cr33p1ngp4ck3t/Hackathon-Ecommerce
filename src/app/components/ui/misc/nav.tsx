@@ -40,8 +40,11 @@ const HEADER_QUERY = `
   slug
 }
 `
+let category: any
 
-const category = await client.fetch(HEADER_QUERY);
+(async () => {
+    category = await client.fetch(HEADER_QUERY);
+  })();
 
 
 /* eslint-disable @next/next/no-img-element */

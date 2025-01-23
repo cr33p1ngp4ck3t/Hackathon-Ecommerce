@@ -1,10 +1,8 @@
 "use client"
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "@/app/styles/style.css";
-
-const image = "/hero.jpeg";
 
 export default function Hero() {
     const [isMobile, setIsMobile] = useState(false);
@@ -33,7 +31,7 @@ export default function Hero() {
                     <Link href="/products" style={{flex:'1'}}><button id="content-button" className={isMobile ? "content-button-mobile" : "content-button"}>View Collection</button></Link>
                 </div>
             </div>
-            <img src={image} alt="Hero Image" />
+            <Image src={'/hero.jpeg'} alt="" width={1440} height={960} />
         </div>
     );
 }
