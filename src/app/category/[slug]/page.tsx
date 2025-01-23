@@ -33,7 +33,7 @@ async function getPosts(slug: string) {
       
 export default async function Category({ params }: PageProps ) {
     
-    const { slug } = params;
+    const { slug } = await params;
     const products = await getPosts(slug);
 
     if (!products || products.length === 0) {
