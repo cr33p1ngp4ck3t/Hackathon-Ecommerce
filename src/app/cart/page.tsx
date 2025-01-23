@@ -9,12 +9,10 @@ export default function CartPage() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
       const savedCart = localStorage.getItem('cart');
       if (savedCart) {
         setCartItems(JSON.parse(savedCart));
       }
-    }
   }, []);
 
   return (

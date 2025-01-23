@@ -3,17 +3,18 @@ import { client } from "@/sanity/lib/client";
 import "@/app/styles/style.css"
 import '@/app/styles/globals.css'
 import ProductCard from "./productcard"
+import { groq } from "next-sanity";
 
 export default async function FeaturedProduct( ) {
 
-    const QUERY = `
-    *[_type == "product" ][0..3] {
+    const QUERY = groq`
+    *[_type == "product" ]   {
         ...,
         "image_url": image.asset->url,
     }
   `
     const products = await client.fetch(QUERY);
-    const randomProducts = products.sort(() => Math.random() - 0.5);
+    const randomProducts = products.sort(() => Math.random() - 0.5).slice(0, 4)
     return( 
         <div>
             <div className="products">

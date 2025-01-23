@@ -40,27 +40,29 @@ const HEADER_QUERY = `
   slug
 }
 `
-let category: any
-
-(async () => {
-    category = await client.fetch(HEADER_QUERY);
-  })();
 
 
-/* eslint-disable @next/next/no-img-element */
 export function Header() {
-    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+    const [category, setCategory] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        async function fetchCategory() {
+            const fetchedCategory = await client.fetch(HEADER_QUERY);
+            setCategory(fetchedCategory);
+        }
+        fetchCategory();
+
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
 
+        handleResize();
         window.addEventListener("resize", handleResize);
-        handleResize()
 
         return () => window.removeEventListener("resize", handleResize);
-    }, [isMobile]);
+    }, []);
+
     return (
         <div>
                 <div className="header-container">
@@ -111,18 +113,26 @@ export function Header() {
     )
 }
 export function Footer () {
-    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+    const [category, setCategory] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        async function fetchCategory() {
+            const fetchedCategory = await client.fetch(HEADER_QUERY);
+            setCategory(fetchedCategory);
+        }
+
+        fetchCategory();
+
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
 
+        handleResize();
         window.addEventListener("resize", handleResize);
-        handleResize()
 
         return () => window.removeEventListener("resize", handleResize);
-    }, [isMobile]);
+    }, []);
 
     return (
         <div>
@@ -228,22 +238,31 @@ export function Footer () {
 }
 
 export function HeaderProduct() {
+    const [category, setCategory] = useState([]);
     const [show, setShow] = useState(true);
-    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
-    const Close = () => {
-        setShow(false);
-    };
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        async function fetchCategory() {
+            const fetchedCategory = await client.fetch(HEADER_QUERY);
+            setCategory(fetchedCategory);
+        }
+        fetchCategory();
+
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
 
+        setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 768);
         window.addEventListener("resize", handleResize);
-        handleResize()
+        handleResize();
 
         return () => window.removeEventListener("resize", handleResize);
-    }, [isMobile]);
+    }, []);
+
+    const Close = () => {
+        setShow(false);
+    };
 
     return (
         <div>
@@ -299,17 +318,25 @@ export function HeaderProduct() {
 
 export function FooterProduct() {
     const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+    const [category, setCategory] = useState([]);
 
     useEffect(() => {
+        const fetchCategory = async () => {
+            const result = await client.fetch(HEADER_QUERY);
+            setCategory(result);
+        };
+
+        fetchCategory();
+
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
 
         window.addEventListener("resize", handleResize);
-        handleResize()
+        handleResize();
 
         return () => window.removeEventListener("resize", handleResize);
-    }, [isMobile]);
+    }, []);
 
     return( 
         <div>
@@ -418,26 +445,30 @@ export function FooterProduct() {
 
 export function AboutHeader() {
     const [show, setShow] = useState(true);
-    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(false);
+    const [category, setCategory] = useState([]);
     const Close = () => {
         setShow(false);
     };
 
     useEffect(() => {
+        const fetchCategory = async () => {
+            const fetchedCategory = await client.fetch(HEADER_QUERY);
+            setCategory(fetchedCategory);
+        };
+
+        fetchCategory();
+
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
 
+        setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 768);
         window.addEventListener("resize", handleResize);
-        handleResize()
+        handleResize();
 
         return () => window.removeEventListener("resize", handleResize);
-    }, [isMobile]);
-
-    // const [menu, setMenu] =useState (false);
-    // const handleMenu= () => {
-    //     setMenu(!menu)
-    // }
+    }, []);
 
     return(
         <div>
@@ -491,8 +522,6 @@ export function AboutHeader() {
                             !isMobile ? (
                                 <>
                                 <div>
-
-
                                     <div className="header-container-2">
                                         <div className="header-container-items">
                                         {

@@ -10,6 +10,7 @@ import { useCart } from "../../context/carthandler/page";
 
 export default function Checkout() {
     const { cartItems } = useCart()
+    const clearCart = () => localStorage.removeItem('cart');
 
 
     const handleCheckout = async () => {
@@ -29,7 +30,7 @@ export default function Checkout() {
     
           if (response.ok) {
             alert("Order placed successfully!");
-            localStorage.removeItem("cart");
+            clearCart()
             window.location.href = "/";
 
           } else {

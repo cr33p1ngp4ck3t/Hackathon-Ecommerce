@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// context/carthandler/page.tsx
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
 
@@ -18,27 +17,14 @@ interface CartProps {
 const CartContext = createContext<CartProps | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
-    const [isClient, setIsClient] = useState(false);
+    const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+        const savedCart = localStorage.getItem('cart');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
 
     useEffect(() => {
-        setIsClient(true);
-    }, []);
-
-    useEffect(() => {
-        if (isClient) {
-            const savedCart = localStorage.getItem('cart');
-            if (savedCart) {
-                setCartItems(JSON.parse(savedCart));
-            }
-        }
-    }, [isClient]);
-
-    useEffect(() => {
-        if (isClient) {
-            localStorage.setItem('cart', JSON.stringify(cartItems));
-        }
-    }, [cartItems, isClient]);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     const addToCart = (product: any) => {
         setCartItems((prev) => {
@@ -67,10 +53,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const removeItem = (productId: string) => {
         setCartItems((prev) => prev.filter((item) => item.product._id !== productId));
     };
-
-    if (!isClient) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <CartContext.Provider value={{ cartItems, addToCart, updateQuantity, removeItem }}>
