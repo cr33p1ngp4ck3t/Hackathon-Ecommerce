@@ -19,13 +19,14 @@ async function getPost(slug: string) {
 }
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>
 }
 
 export default async function ProductPage({ params }: PageProps) {
-    const product = await getPost(params.slug);
+    const {slug} = await params;
+    const product = await getPost(slug);
 
     if (!product) {
         return <p>Product not found</p>;
