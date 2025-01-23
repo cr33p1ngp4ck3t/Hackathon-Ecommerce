@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import Menu from "./menu";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
+import LogoMenu from "./socials";
 
 const searchBar = (
 <div
@@ -171,12 +172,7 @@ export function Footer () {
                         <div style={{fontSize:"14px", alignContent:"center"}}>Copyright 2022 Avion LTD</div>
                         <div>
                             <div style={{ display:'flex', gap:"20px", cursor:"pointer"}}>
-                                <Image loading="lazy" src="/Logo-linkedin.png" alt="" width={24} height={24}/>
-                                <Image loading="lazy" src="/Logo-facebook.png" alt="" width={24} height={24}/>
-                                <Image loading="lazy" src="/Logo-instagram.png" alt="" width={24} height={24}/>
-                                <Image loading="lazy" src="/Logo-skype.png" alt="" width={24} height={24}/>
-                                <Image loading="lazy" src="/Logo-twitter.png" alt="" width={24} height={24}/>
-                                <Image loading="lazy" src="/Logo-pinterest.png" alt="" width={24} height={24}/>
+                                <LogoMenu/>
                             </div>
                         </div>
                     </div>
@@ -339,12 +335,7 @@ export function FooterProduct() {
                             <div className="product-footer-text">
                                 <div id="t">
                                     <div style={{display:'flex', gap:"20px", cursor:"pointer"}}>
-                                        <Image loading="lazy" src="/Logo-linkedin.png" alt=""  width={24} height={24}/>
-                                        <Image loading="lazy" src="/Logo-facebook.png" alt=""  width={24} height={24}/>
-                                        <Image loading="lazy" src="/Logo-instagram.png" alt=""  width={24} height={24}/>
-                                        <Image loading="lazy" src="/Logo-skype.png" alt=""  width={24} height={24}/>
-                                        <Image loading="lazy" src="/Logo-twitter.png" alt=""  width={24} height={24}/>
-                                        <Image loading="lazy" src="/Logo-pinterest.png" alt="" width={24} height={24} />
+                                        <LogoMenu/>
                                     </div>
                                 </div>
                                 <div id="t">
@@ -392,12 +383,7 @@ export function FooterProduct() {
                             <div style={{padding:"10px 0"}}>
                                 <div style={{fontSize:"16px", padding:"15px 0 ", color:"white"}}>Social Links</div>
                                 <div style={{ display:'grid', gridTemplateColumns:"repeat(3, 1fr)", gap:"20px", cursor:"pointer"}}>
-                                    <Image loading="lazy" width={24} height={24} src="/Logo-linkedin.png" alt="" />
-                                    <Image loading="lazy" width={24} height={24} src="/Logo-facebook.png" alt="" />
-                                    <Image loading="lazy" width={24} height={24} src="/Logo-instagram.png" alt="" />
-                                    <Image loading="lazy" width={24} height={24} src="/Logo-skype.png" alt="" />
-                                    <Image loading="lazy" width={24} height={24} src="/Logo-twitter.png" alt="" />
-                                    <Image loading="lazy" width={24} height={24} src="/Logo-pinterest.png" alt="" />
+                                    <LogoMenu/>
                                 </div>
                             </div>
                             <div>

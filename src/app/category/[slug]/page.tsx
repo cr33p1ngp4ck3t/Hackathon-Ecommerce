@@ -7,9 +7,9 @@ import Image from "next/image";
 import "../../styles/globals.css"
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>
 }
 
 async function getPosts(slug: string) {

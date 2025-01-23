@@ -17,7 +17,9 @@ export default function Newsletter () {
         <>
         <div style={{display:"flex", marginTop:""}}>
             <div className={ isPage ? "newsletter-container" : "newsletter-container-1" }>
-                <div id="newsletter-content">
+                <div id="newsletter-content" style={{
+                    width: isPage ? "40%" : "100%"
+                }}>
                     <div id="h">Join the club and get the benefits</div>
                     <div id="t">Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more</div>
                     {
