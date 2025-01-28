@@ -12,22 +12,22 @@ export default function ProductDetails({ product }: { product: any }) {
             <div className="container-1">
                 <Image src={product.image} alt={product.name} width={721} height={759} loading="lazy" />
             </div>
-            <div className="container-2">
-                <div className="container-desc">
-                    <div>
+            <div className="container-2  ">
+                <div className="flex flex-col h-[70%] sm:p-[3vw] justify-between xl:sticky top-0">
+                    <div className=' px-4'>
                         <div className="product-name text-6xl">{product.name}</div>
                         <div className="product-price text-4xl">£{product.price}</div>
                     </div>
-                    <div>
+                    <div className=' px-4'>
                         <div className='text-2xl mt-4'>Description</div>
-                        <div className="product-desc md:text-lg lg:text-2xl sm:text-xl text-xl">{product.description}</div>
+                        <div className="product-desc md:text-lg lg:text-2xl sm:text-xl text-xl text-wrap">{product.description}</div>
                         <ul className="product-features md:text-lg lg:text-2xl sm:text-xl text-xl">
                             {product.features?.map((feature: string, index: number) => (
-                                <li key={index}>{feature}</li>
+                                <li key={index}>- {feature}</li>
                             ))}
                         </ul>
                     </div>
-                    <div className="product-dimensions mt-5">
+                    <div className="product-dimensions mt-5 px-4">
                         <div className='text-2xl'>Dimension</div>
                         <div className="dimensions-row">
                             <div className="dimension-label text-xl">Height</div>
@@ -40,7 +40,7 @@ export default function ProductDetails({ product }: { product: any }) {
                             <div className="dimension-value text-xl">{product.dimensions?.depth}</div>
                         </div>
                     </div>
-                    <div className="product-actions gap-5 mt-2">
+                    <div className="product-actions sm:gap-5 mt-2 ">
                         <div className="product-amount text-2xl">
                             Amount <span className="amount-value text-2xl">{product.quantity}</span>
                         </div>

@@ -45,7 +45,7 @@ export default function Proof() {
                         content.map((details, index)=> (
                             <div key={index} className={ isHomePage ? 'proof-container-1' : 'proof-container-2'}>
                                 <div style={{width:"205px", display:"flex", flexDirection:"column", height:"145px", justifyContent:"space-between"}}>
-                                    <div><Image width={24} height={24} src={details.img} alt={details.title} /></div>
+                                    <div><Image width={24} height={24} src={details.img} alt={details.title}  loading="lazy" /></div>
                                     <div id="h">{details.title}</div>
                                     <div id="t">{details.desc}</div>
                                 </div>

@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { writeClient } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { NextResponse } from "next/server";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { items } = body;
+    const { items, customerId } = body;
 
-    if (!Array.isArray(items) || items.length === 0) {
+    if (!items || items.length === 0) {
       return NextResponse.json(
         { message: "Invalid order data" },
         { status: 400 }
@@ -22,12 +23,6 @@ export async function POST(request: Request) {
         { productId }
       );
 
-      if (!product) {
-        return NextResponse.json(
-          { message: `Product with ID ${productId} not found` },
-          { status: 404 }
-        );
-      }
 
       if (product.quantity < quantity) {
         return NextResponse.json(
@@ -41,25 +36,27 @@ export async function POST(request: Request) {
         .dec({ quantity })
         .commit();
 
-        
-        updatedProducts.push({
+      updatedProducts.push({
         _key: uuidv4(),
         product: { _type: "reference", _ref: productId },
         quantity,
       });
     }
-    const orderId = uuidv4();
 
+    const orderId = uuidv4();
     const order = await writeClient.create({
       _type: "order",
       orderId,
       items: updatedProducts,
       status: "pending",
+      customer: { _type: "reference", _ref: customerId }, // Reference the customer in the order
     });
 
+    // Return success response
     return NextResponse.json({ order }, { status: 201 });
+
   } catch (error) {
-    console.error(error);
+    console.error("Error processing order:", error);
     return NextResponse.json(
       { message: "Error processing order" },
       { status: 500 }

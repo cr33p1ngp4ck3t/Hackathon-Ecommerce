@@ -31,7 +31,7 @@ export default function Hero() {
                     <Link href="/products" style={{flex:'1'}}><button id="content-button" className={isMobile ? "content-button-mobile" : "content-button"}>View Collection</button></Link>
                 </div>
             </div>
-            <Image src={'/hero.jpeg'} alt="" width={1440} height={960} />
+            <Image src={'/hero.jpeg'} alt="" width={1440} height={960} loading="lazy" />
         </div>
     );
 }

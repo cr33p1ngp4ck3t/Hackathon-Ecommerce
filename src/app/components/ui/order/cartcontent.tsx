@@ -5,12 +5,28 @@ import Image from "next/image"
 import "@/app/styles/shop-cart.css"
 import { useCart } from "@/context/carthandler/page";
 import Link  from "next/link";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function CartContent( order? : { order: any }) {
+    const [loader, setLoader] = useState(false)
+
+    const handleLoader = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setLoader(false)
+        }, 3000)
+    }
     
 
     return (
+        <>
+        {
+            loader && 
+            <div className='flex justify-center items-center  bg-[#ffffff71] backdrop-blur-sm w-screen h-screen fixed z-40 top-0 left-0'>
+                <Image src={'/ring-loader.svg'} alt='' width={80} height={80} className=' z-40 ' loading="lazy" />
+            </div>
+        }
         <div className="cart-page">
             <div className="cart-container">
                 <div className="cart-content">
@@ -28,18 +44,20 @@ export function CartContent( order? : { order: any }) {
                         <div className="my-[10px] flex flex-col gap-[10px] items-end  ">
                             <CartTotal />
                             <div className="text-[#4E4D93] text-sm  ">Taxes and shipping are calculated at checkout</div>
-                            <Link href='/checkout'><button id="input-checkout">Go To Checkout</button></Link>
+                            <Link href='/checkout'><button id="input-checkout" onClick={handleLoader}>Go To Checkout</button></Link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </>
   )
 }
 
 
-export const CartDetails= ( key? : any ) => {
+export const CartDetails= () => {
     const { cartItems, updateQuantity, removeItem } = useCart()
+    const rem = usePathname()
 
     const cartItemsList = useMemo(() => {
         return cartItems.map((item: any) => (
@@ -73,17 +91,29 @@ export const CartDetails= ( key? : any ) => {
                                 updateQuantity(item.product._id, value);
                             }
                         }}
+                        disabled={rem === '/cart' ? false : true}
                     />
                 </div>
                 <div className="cart-item-total w-full justify-end items-center flex">
                     £{(item.product.price * item.quantity).toFixed(2)}
                 </div>
-                <button className="flex-1 justify-end items-center flex border-none bg-inherit cursor-default">
-                    <Image src={'trash.svg'} alt="" width={30} height={30} onClick={() => removeItem(item.product._id)} className="cursor-pointer" loading="lazy" />
-                </button>
+                {
+                    rem === '/cart' ?
+                     (
+                        <button className="flex-1 justify-end items-center flex border-none bg-inherit cursor-default">
+                            <Image src={'trash.svg'} alt="" width={30} height={30} onClick={() => removeItem(item.product._id)} className="cursor-pointer" loading="lazy" />
+                        </button>
+                    ) 
+                : (
+                    <div>
+
+                    </div>
+                )
+                }
+                
             </div>
         ));
-    }, [cartItems, updateQuantity, removeItem]);
+    }, [cartItems, updateQuantity, removeItem, rem]);
     return (
         <div>
             {cartItemsList}

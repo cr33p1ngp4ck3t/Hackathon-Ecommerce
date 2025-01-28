@@ -45,6 +45,14 @@ const HEADER_QUERY = `
 export function Header() {
     const [category, setCategory] = useState([]);
     const [isMobile, setIsMobile] = useState(false);
+    const [loader, setLoader] = useState(false)
+
+    const handleLoader = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setLoader(false)
+        }, 3000)
+    }
 
     useEffect(() => {
         async function fetchCategory() {
@@ -65,22 +73,28 @@ export function Header() {
 
     return (
         <div>
+            {
+                    loader && 
+                    <div className='flex justify-center items-center  bg-[#ffffff71] backdrop-blur-sm w-screen h-screen fixed z-40 top-0 left-0'>
+                        <Image src={'/ring-loader.svg'} alt='' width={80} height={80} className=' z-40 '  loading="lazy"/>
+                    </div>
+                }
                 <div className="header-container">
                     <div className="header-container-1">
-                        <Link href={'/'} style={{textDecoration:"none"}}><div id="heading">Avion</div></Link>
+                        <Link href={'/'} style={{textDecoration:"none"}}><div id="heading" onClick={handleLoader}>Avion</div></Link>
                         <div>
                             {
                                 !isMobile ? (
                                     <div style={{display:"flex", gap:"20px", alignItems:"center", justifyContent:"center",}}>
                                         {searchBar}
-                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24} onClick={handleLoader} /></Link>
                                         <Image loading="lazy" src="/user.svg" alt="" width={24} height={24}/>
                                     </div>
                                 ): (
                                     <div className="hamburger-menu">
                                         <div className="hamburger-icon flex items-center">
                                             {searchBar}
-                                            <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                            <Link onClick={handleLoader} href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24} /></Link>
                                             <Menu category={category} />
                                         </div>
                                     </div>
@@ -95,7 +109,7 @@ export function Header() {
                                 {
                                     category.map((item: any) => (
                                         <div key={item._id}>
-                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}}>{item.name}</Link>
+                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}} onClick={handleLoader}>{item.name}</Link>
                                         </div>
                                     ))
                                 }
@@ -115,6 +129,14 @@ export function Header() {
 export function Footer () {
     const [category, setCategory] = useState([]);
     const [isMobile, setIsMobile] = useState(false);
+    const [loader, setLoader] = useState(false)
+
+    const handleLoader = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setLoader(false)
+        }, 3000)
+    }
 
     useEffect(() => {
         async function fetchCategory() {
@@ -136,6 +158,13 @@ export function Footer () {
 
     return (
         <div>
+            {
+                loader && 
+                <div className='flex justify-center items-center  bg-[#ffffff71] backdrop-blur-sm w-screen h-screen fixed z-40 top-0 left-0'>
+                    <Image src={'/ring-loader.svg'} alt='' width={80} height={80} className=' z-40 '  loading="lazy"/>
+                </div>
+            }
+                
             {
                 !isMobile ? (
 
@@ -161,14 +190,14 @@ export function Footer () {
                             {
                                     category.map((item: any) => (
                                         <div key={item._id}>
-                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}}>{item.name}</Link>
+                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}} onClick={handleLoader}>{item.name}</Link>
                                         </div>
                                     ))
                                 }
 
                             </div>
                             <div className="x">
-                            <div><Link href={'/about'} style={{color:"white", fontFamily:"Satoshi, sans-serif", textDecoration:'none'}}>About us</Link></div>
+                            <div><Link href={'/about'} style={{color:"white", fontFamily:"Satoshi, sans-serif", textDecoration:'none'}} onClick={handleLoader}>About us</Link></div>
                             <div>contact us</div>
                                 <div>vacancies</div>
                                 <div>Privacy</div>
@@ -199,7 +228,7 @@ export function Footer () {
                                 {
                                     category.map((item: any) => (
                                         <div key={item._id} className="flex flex-col" style={{padding:"10px 0", fontFamily:"Satoshi, sans-serif"}}>
-                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"white", fontSize:"14px",  }}>{item.name}</Link>
+                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"white", fontSize:"14px",  }} onClick={handleLoader}>{item.name}</Link>
                                         </div>
                                     ))
                                 }
@@ -210,11 +239,11 @@ export function Footer () {
                                 <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>Best sellers</div>
                                 <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>Recently viewed</div>
                                 <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>Popular this week</div>
-                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif",}}><Link href={'/products'} style={{ color:"white", textDecoration:'none',}}>all product</Link></div>
+                                <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif",}}><Link href={'/products'} style={{ color:"white", textDecoration:'none',}} onClick={handleLoader}>all product</Link></div>
                            </div>
                             <div>
                                 <div style={{fontSize:"16px", color:"white", padding:"10px 0"}} >Our Company</div>
-                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0"}}>About us</div></Link>
+                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0"}} onClick={handleLoader}>About us</div></Link>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>contact us</div>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>vacancies</div>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>Privacy</div>
@@ -241,6 +270,14 @@ export function HeaderProduct() {
     const [category, setCategory] = useState([]);
     const [show, setShow] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
+    const [loader, setLoader] = useState(false)
+
+    const handleLoader = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setLoader(false)
+        }, 3000)
+    }
 
     useEffect(() => {
         async function fetchCategory() {
@@ -266,6 +303,12 @@ export function HeaderProduct() {
 
     return (
         <div>
+            {
+                loader && 
+                <div className='flex justify-center items-center  bg-[#ffffff71] backdrop-blur-sm w-screen h-screen fixed z-40 top-0 left-0'>
+                    <Image src={'/ring-loader.svg'} alt='' width={80} height={80} className=' z-40 '  loading="lazy"/>
+                </div>
+            }
             {show && (
                 <div className="promo-bar">
                     <div className="promo-content">
@@ -278,7 +321,7 @@ export function HeaderProduct() {
                 </div>
             )}
             <div className="header-container-product">
-                <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
+                <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading" onClick={handleLoader}>Avion</div></Link>
 
                 {!isMobile ? (
                     <>
@@ -287,7 +330,7 @@ export function HeaderProduct() {
                             {
                                     category.map((item: any) => (
                                         <div key={item._id}>
-                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}}>{item.name}</Link>
+                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}} onClick={handleLoader}>{item.name}</Link>
                                         </div>
                                     ))
                                 }
@@ -295,7 +338,7 @@ export function HeaderProduct() {
                         </div>
                         <div className="header-icons">
                             {searchBar}
-                            <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                            <Link href={'/cart'} onClick={handleLoader}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24} /></Link>
                             <Image loading="lazy" src="/user.svg" alt="User" width={24} height={24}/>
                         </div>
                     </>
@@ -304,7 +347,7 @@ export function HeaderProduct() {
                     <div className="hamburger-menu">
                         <div className="hamburger-icon flex items-center">
                         {searchBar}
-                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                        <Link href={'/cart'} onClick={handleLoader}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24} /></Link>
                         <Menu category={category} />
                         </div>
                     </div>
@@ -319,6 +362,14 @@ export function HeaderProduct() {
 export function FooterProduct() {
     const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
     const [category, setCategory] = useState([]);
+    const [loader, setLoader] = useState(false)
+
+    const handleLoader = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setLoader(false)
+        }, 3000)
+    }
 
     useEffect(() => {
         const fetchCategory = async () => {
@@ -341,13 +392,19 @@ export function FooterProduct() {
     return( 
         <div>
             {
+                loader && 
+                <div className='flex justify-center items-center  bg-[#ffffff71] backdrop-blur-sm w-screen h-screen fixed z-40 top-0 left-0'>
+                    <Image src={'/ring-loader.svg'} alt='' width={80} height={80} className=' z-40 '  loading="lazy"/>
+                </div>
+            }
+            {
                 !isMobile ?
                 (
                     
                 <div className="product-footer">
                     <div className="product-footer-container">
                         <div>
-                            <Link href={'/'} style={{textDecoration:"none"}}><div id="h">Avion</div></Link>
+                            <Link href={'/'} style={{textDecoration:"none"}} onClick={handleLoader}><div id="h">Avion</div></Link>
                             <div id="t">
                                 <div>21 New York Street</div>
                                 <div>New York City</div>
@@ -378,12 +435,12 @@ export function FooterProduct() {
                                 <div id="t">
                                     {
                                     category.map((item: any) => (
-                                        <Link href={`/category/${item.slug.current}`} key={item._id} className="" style={{textDecoration:"none", color:"inherit"}}>{item.name}</Link>
+                                        <Link href={`/category/${item.slug.current}`} key={item._id} className="" style={{textDecoration:"none", color:"inherit"}} onClick={handleLoader}>{item.name}</Link>
                                     ))
                                 }
                                 </div>
                                 <div id="t">
-                                <div><Link href={'/about'} style={{color:"white", fontFamily:"Satoshi, sans-serif", textDecoration:'none'}}>About us</Link></div>
+                                <div><Link href={'/about'} style={{color:"white", fontFamily:"Satoshi, sans-serif", textDecoration:'none'}}onClick={handleLoader}>About us</Link></div>
                                 <div>contact us</div>
                                     <div>vacancies</div>
                                     <div>Privacy</div>
@@ -402,7 +459,7 @@ export function FooterProduct() {
                     <div style={{background:"#2A254B", height:"100%", width:"100%", color:"white"}}>
                         <div style={{display:"grid", gridTemplateColumns:"repeat(2, 1fr)", textTransform:"capitalize", margin:"0 20px 20px", paddingTop:"30px"}}>
                             <div>
-                                <Link href={'/'} style={{textDecoration:"none"}}><div style={{fontSize:"36px", color:"white", padding:"5px"}}>Avion</div></Link>
+                                <Link href={'/'} style={{textDecoration:"none"}}><div style={{fontSize:"36px", color:"white", padding:"5px"}}onClick={handleLoader}>Avion</div></Link>
                                 <div>
                                     <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>21 New York Street</div>
                                     <div style={{fontSize:"14px", padding:"10px 0",fontFamily:"Satoshi, sans-serif", color:"white"}}>New York City</div>
@@ -426,7 +483,7 @@ export function FooterProduct() {
                            </div>
                             <div>
                                 <div style={{fontSize:"16px", color:"white", padding:"10px 0"}} >Our Company</div>
-                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0", textDecoration:"none"}}>About us</div></Link>
+                                <Link href={'/about'}><div style={{fontSize:"14px", color:"white", padding:"10px 0", textDecoration:"none"}}onClick={handleLoader}>About us</div></Link>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>contact us</div>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>vacancies</div>
                                 <div style={{fontSize:"14px", fontFamily:"Satoshi, sans-serif", color:"white", padding:"10px 0"}}>Privacy</div>
@@ -447,6 +504,15 @@ export function AboutHeader() {
     const [show, setShow] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
     const [category, setCategory] = useState([]);
+    const [loader, setLoader] = useState(false)
+
+    const handleLoader = () => {
+        setLoader(true)
+        setTimeout(() => {
+            setLoader(false)
+        }, 3000)
+    }
+
     const Close = () => {
         setShow(false);
     };
@@ -472,6 +538,12 @@ export function AboutHeader() {
 
     return(
         <div>
+            {
+                loader && 
+                <div className='flex justify-center items-center  bg-[#ffffff71] backdrop-blur-sm w-screen h-screen fixed z-40 top-0 left-0'>
+                    <Image src={'/ring-loader.svg'} alt='' width={80} height={80} className=' z-40 '  loading="lazy"/>
+                </div>
+            }
             <div>
                 <div>
                 {show && (
@@ -487,20 +559,20 @@ export function AboutHeader() {
                 )}
                 <div className="header-container-about">
                     <div className="header-container-1">
-                        <Link href={'/'} style={{ textDecoration:'none' }}><div id="heading">Avion</div></Link>
+                        <Link href={'/'} style={{ textDecoration:'none' }} onClick={handleLoader}><div id="heading">Avion</div></Link>
                         <div className="header-icons-about">
                             {
                                 !isMobile ? (
                                     <div className="header-icons-about">
                                         <div id="about-links">
-                                        <div><Link href={'/about'} style={{textDecoration:'none'}}>About us</Link></div>
+                                        <div><Link href={'/about'} style={{textDecoration:'none'}} onClick={handleLoader}>About us</Link></div>
                                         <div>Contact</div>
                                             <div>Blog</div>
                                         </div>
                                         <div>
                                         {/* {searchBar} */}
                                         </div>
-                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                        <Link href={'/cart'} onClick={handleLoader}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
                                         <Image loading="lazy" src="/user.svg" alt="User" width={24} height={24}/>
                                     </div>
                                     
@@ -508,7 +580,7 @@ export function AboutHeader() {
                                     <div className="hamburger-menu">
                                         <div className="hamburger-icon flex items-center">
                                         {searchBar}
-                                        <Link href={'/cart'}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
+                                        <Link href={'/cart'} onClick={handleLoader}><Image loading="lazy" src="/cart.svg" alt="Cart" width={24} height={24}/></Link>
                                         <Menu category={category} />
                                         </div>
                                     </div>
@@ -527,7 +599,7 @@ export function AboutHeader() {
                                         {
                                     category.map((item: any) => (
                                         <div key={item._id}>
-                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}}>{item.name}</Link>
+                                            <Link href={`/category/${item.slug.current}`} className="" style={{textDecoration:"none", color:"inherit"}} onClick={handleLoader}>{item.name}</Link>
                                         </div>
                                     ))
                                 }

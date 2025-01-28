@@ -17,3 +17,10 @@ export const writeClient = createClient({
   useCdn: false,
 })
 
+export const Formclient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  token: process.env.NEXT_PRIVATE_SANITY_TOKEN_FORM,
+  useCdn: false,
+})

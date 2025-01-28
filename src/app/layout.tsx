@@ -21,6 +21,10 @@ export default function RootLayout({
         <head>
           <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet" />
           <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet"></link>
+          <meta property="og:site_name" content="Furniro"></meta>
+          <meta property="og:title" content="Furniture Ecommerce Marketplace"></meta>
+          <meta property="og:description" content="Browse the Best Furniture in your Area without any Distractions." />
+          <meta property="og:url" content="Visit the Best Furniture Marketplace"></meta>
         </head>
         <body>
           <SpeedInsights />

@@ -18,16 +18,16 @@ export default function Newsletter () {
         <div style={{display:"flex", marginTop:""}}>
             <div className={ isPage ? "newsletter-container" : "newsletter-container-1" }>
                 <div id="newsletter-content" style={{
-                    width: isPage ? "40%" : "100%"
+                    width: isPage ? "" : "100%"
                 }}>
                     <div id="h">Join the club and get the benefits</div>
                     <div id="t">Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more</div>
                     {
                         show && (
                             <div id="c">
-                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} /><div>Exclusive offers</div></div>
-                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} /><div>Free events</div></div>
-                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} /><div>Large discounts</div></div>
+                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} loading="lazy" /><div>Exclusive offers</div></div>
+                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} loading="lazy" /><div>Free events</div></div>
+                                <div><Image src="/checkmark-filled.png" alt="" width={20} height={20} loading="lazy" /><div>Large discounts</div></div>
                             </div>
                         )
                     }
